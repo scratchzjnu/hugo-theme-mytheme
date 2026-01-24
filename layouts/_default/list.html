@@ -8,7 +8,8 @@
         <div class="list-content">{{ .Content }}</div>
         {{ end }}
         <div class="posts-list">
-            {{ range .RegularPages }}
+            {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+            {{ range $paginator.Pages }}
             <a href="{{ .Permalink }}" class="post-link">
                 <article class="post-item">
                     <div class="post-meta">
@@ -26,6 +27,18 @@
             </a>
             {{ end }}
         </div>
+        
+        <!-- 分页控件 -->
+        {{ if or $paginator.HasPrev $paginator.HasNext }}
+        <div class="pagination">
+            {{ if $paginator.HasPrev }}
+            <a href="{{ $paginator.Prev.URL }}" class="pagination-link prev">上一页</a>
+            {{ end }}
+            {{ if $paginator.HasNext }}
+            <a href="{{ $paginator.Next.URL }}" class="pagination-link next">下一页</a>
+            {{ end }}
+        </div>
+        {{ end }}
     </div>
 </section>
 {{ end }}
