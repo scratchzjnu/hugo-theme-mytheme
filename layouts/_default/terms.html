@@ -1,0 +1,20 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="terms-page">
+    <div class="container">
+        <h1>{{ .Title }}</h1>
+        {{ if .Content }}
+        <div class="terms-content">{{ .Content }}</div>
+        {{ end }}
+        <div class="terms-list">
+            {{ range .Data.Terms.Alphabetical }}
+            <div class="term-item">
+                <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+                <span class="term-count">({{ .Count }})</span>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

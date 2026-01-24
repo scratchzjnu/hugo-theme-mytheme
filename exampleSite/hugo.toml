@@ -1,0 +1,58 @@
+baseURL = "https://localhost/"
+languageCode = "zh-CN"
+title = "My Theme Demo"
+description = "一个干净现代的Hugo主题演示网站"
+
+# 主题配置
+theme = "my-theme"
+
+# 菜单配置
+[[menu.main]]
+name = "首页"
+url = "/"
+weight = 10
+
+[[menu.main]]
+name = "文章"
+url = "/posts/"
+weight = 20
+
+[[menu.main]]
+name = "关于"
+url = "/about/"
+weight = 30
+
+[[menu.main]]
+name = "作品"
+url = "/portfolio/"
+weight = 40
+
+[[menu.main]]
+name = "更新日志"
+url = "/changelog/"
+weight = 50
+
+# 社交媒体配置
+[params.social]
+twitter = "https://twitter.com/example"
+github = "https://github.com/example"
+linkedin = "https://linkedin.com/in/example"
+
+# 首页配置
+[params]
+description = "欢迎来到My Theme演示网站"
+
+[params.cta]
+text = "了解更多"
+link = "/about/"
+
+# 分页配置
+[pagination]
+paginate = 5
+paginatePath = "page"
+
+# 评论配置
+disqusShortname = "example"
+
+# 谷歌分析
+googleAnalytics = "UA-12345678-9"

@@ -1,0 +1,8 @@
+<div class="header-logo">
+    <a href="{{ .Site.Home.Permalink }}" class="logo-link">
+        {{ if .Site.Params.logo }}
+        <img src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }} Logo" height="40" class="logo-image">
+        {{ end }}
+        <span class="site-title">{{ .Site.Title }}</span>
+    </a>
+</div>

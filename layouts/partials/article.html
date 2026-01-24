@@ -1,0 +1,9 @@
+<article class="article-item">
+    {{ partial "featured_image.html" . }}
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <div class="article-meta">
+        <span class="article-date">{{ .Date.Format "2006-01-02" }}</span>
+    </div>
+    <div class="article-summary">{{ .Summary }}</div>
+    <a href="{{ .Permalink }}" class="read-more">阅读更多</a>
+</article>

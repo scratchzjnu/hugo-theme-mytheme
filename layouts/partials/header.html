@@ -1,0 +1,37 @@
+<header class="site-header bg-blue-50">
+    <nav class="navbar navbar-expand-lg bg-blue-700 text-white">
+        <div class="container-fluid">
+            <!-- Left section: Logo, Site Title -->
+            <a class="navbar-brand d-flex align-items-center" href="{{ .Site.Home.Permalink }}">
+                <img src="{{ "images/logo.png" | absURL }}" alt="{{ .Site.Title }} Logo" class="logo-image me-2">
+                <span class="site-title">{{ .Site.Title }}</span>
+            </a>
+            
+            <!-- Toggle button for collapsed menu -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon text-white"></span>
+            </button>
+            
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Menu Items and Social Icons -->
+                <div class="d-flex align-items-center justify-content-end w-100">
+                    <!-- Menu Items -->
+                    <div class="navbar-nav">
+                        {{ $site := .Site }}
+                        {{ $menuLen := len $site.Menus.main }}
+                        {{ range $index, $item := $site.Menus.main }}
+                        <a class="nav-link text-white" href="{{ $item.URL }}">{{ $item.Name }}</a>
+                        {{ if not (eq $index (sub $menuLen 1)) }}
+                        <span class="text-white mx-2 d-none d-lg-inline">|</span>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    {{ partial "header_includes.html" . }}
+</header>

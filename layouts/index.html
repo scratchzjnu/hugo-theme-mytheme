@@ -1,0 +1,49 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="home-page">
+    <div class="container">
+        <div class="main-content">
+            <!-- Left column: Feature image and description (55%) -->
+            <div class="left-column">
+                <div class="feature-image-container">
+                    <!-- Feature image -->
+                    <img src="{{ "images/feature.jpg" | absURL }}" alt="Feature Image" class="feature-image">
+                    <!-- Description text below the image -->
+                    <div class="feature-description">
+                        <p>这里是feature.jpg图片的说明文字，可以根据需要进行修改。这张图片展示了我们网站的主题内容，希望能够吸引访问者的注意力。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right column: Latest posts (45%) -->
+            <div class="right-column">
+                <h2 class="latest-posts-title">最新更新</h2>
+                <div class="latest-posts-list">
+                    {{ range first 3 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+                    <article class="latest-post-item">
+                        <div class="post-header">
+                            <h3 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                            <div class="post-meta">
+                                <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+                            </div>
+                        </div>
+                        <div class="post-summary">
+                            {{ if .Summary }}
+                                {{ substr .Summary 0 100 }}{{ if gt (len .Summary) 100 }}...{{ end }}
+                            {{ else }}
+                                {{ substr .Content 0 100 }}{{ if gt (len .Content) 100 }}...{{ end }}
+                            {{ end }}
+                        </div>
+                    </article>
+                    {{ end }}
+                </div>
+                <!-- Read more link -->
+                <div class="read-more-container">
+                    <a href="{{ "posts" | absURL }}" class="read-more-link">阅读更多</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

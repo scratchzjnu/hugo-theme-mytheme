@@ -1,0 +1,32 @@
+<footer class="site-footer bg-blue-700 text-white">
+    <div class="footer-container">
+        <div class="footer-content">
+            <!-- Left column: Footer text -->
+            <div class="footer-left">
+                <h3>{{ .Site.Title }}</h3>
+                {{ if .Site.Params.description }}
+                <p>{{ .Site.Params.description }}</p>
+                {{ end }}
+                <div class="footer-text">
+                    <p>感谢您访问我们的网站！</p>
+                    <p>我们致力于提供优质的内容和服务，希望您在这里找到有价值的信息。</p>
+                </div>
+            </div>
+            
+            <!-- Right column: QR code -->
+            <div class="footer-right">
+                <div class="qrcode-container">
+                    <!-- You can replace this with an actual QR code image -->
+                    <div class="qrcode-placeholder">
+                        <p>二维码</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="footer-copyright">
+            <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

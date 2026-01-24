@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+    {{ if .Site.Params.favicon }}
+    <link rel="icon" href="{{ .Site.Params.favicon }}">
+    {{ end }}
+    {{ block "head" . }}{{ end }}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ "css/bootstrap.min.css" | absURL }}">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ "css/styles.css" | absURL }}">
+</head>
+<body>
+    {{ partial "header.html" . }}
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+    <!-- Bootstrap JS -->
+    <script src="{{ "js/bootstrap.min.js" | absURL }}"></script>
+    {{ block "footer-scripts" . }}{{ end }}
+</body>
+</html>

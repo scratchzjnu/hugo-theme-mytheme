@@ -1,0 +1,34 @@
+{{- $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) -}}
+{{- $siteTitle := .Site.Title -}}
+{{- $siteLink := .Site.BaseURL -}}
+{{- $siteDescription := .Site.Params.description -}}
+{{- $author := .Site.Params.author -}}
+{{- $authorEmail := .Site.Params.authorEmail -}}
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>{{ $siteTitle }}</title>
+        <link>{{ $siteLink }}</link>
+        <description>{{ $siteDescription }}</description>
+        <language>{{ .Site.LanguageCode }}</language>
+        <copyright>{{ now.Format "2006" }} {{ $siteTitle }}</copyright>
+        <generator>Hugo</generator>
+        <atom:link href="{{ .Site.BaseURL }}index.xml" rel="self" type="application/rss+xml" />
+        {{ range $paginator.Pages }}
+        <item>
+            <title>{{ .Title }}</title>
+            <link>{{ .Permalink }}</link>
+            <description>{{ .Summary }}</description>
+            <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+            <author>{{ $author }}{{ with $authorEmail }} ({{ . }}){{ end }}</author>
+            <guid>{{ .Permalink }}</guid>
+            {{ with .Params.categories }}
+            <category>{{ range . }}{{ . }} {{ end }}</category>
+            {{ end }}
+            {{ with .Params.tags }}
+            <category>{{ range . }}{{ . }} {{ end }}</category>
+            {{ end }}
+        </item>
+        {{ end }}
+    </channel>
+</rss>

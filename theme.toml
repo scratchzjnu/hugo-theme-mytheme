@@ -1,0 +1,20 @@
+# theme.toml
+# Theme metadata for the "my-theme" theme
+
+name = "My Theme"
+description = "A clean and modern Hugo theme for personal blogs and portfolios"
+author = "Your Name"
+author_url = "https://github.com/yourusername"
+license = "MIT"
+licenselink = "https://github.com/yourusername/my-theme/blob/main/LICENSE"
+homepage = "https://github.com/yourusername/my-theme"
+repository = "https://github.com/yourusername/my-theme"
+
+# Hugo version requirements
+min_version = "0.120.0"
+
+# Theme tags (optional)
+tags = ["blog", "portfolio", "clean", "modern", "responsive"]
+
+# Theme features (optional)
+features = ["responsive design", "dark mode", "social media integration", "search functionality"]
