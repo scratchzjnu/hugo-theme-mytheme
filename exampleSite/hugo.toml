@@ -37,14 +37,21 @@ weight = 50
 twitter = "https://twitter.com/example"
 github = "https://github.com/example"
 linkedin = "https://linkedin.com/in/example"
+weibo = "https://weibo.com/example"
+email = "your-email@example.com"
+wechat_official_1 = true  # 显示第一个微信公众号二维码
+wechat_official_2 = false # 显示第二个微信公众号二维码
 
 # 首页配置
 [params]
-description = "欢迎来到My Theme演示网站"
+description = "欢迎来到My Theme演示网站"  # 站点描述
+mainSections = ["posts"]           # 主要内容部分
+logo = true                         # 显示logo
 
-[params.cta]
-text = "了解更多"
-link = "/about/"
+# 首页Feature配置
+[params.feature]
+feature_img = "images/feature.jpg"  # 特色图片路径
+feature_description = "这里是特色图片的说明文字，可以根据需要进行修改。这张图片展示了我们网站的主题内容，希望能够吸引访问者的注意力。"  # 特色图片描述
 
 # 分页配置
 [pagination]

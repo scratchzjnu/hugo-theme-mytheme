@@ -3,7 +3,9 @@
         <div class="container-fluid">
             <!-- Left section: Logo, Site Title -->
             <a class="navbar-brand d-flex align-items-center" href="{{ .Site.Home.Permalink }}">
+                {{ if .Site.Params.logo }}
                 <img src="{{ "images/logo.png" | absURL }}" alt="{{ .Site.Title }} Logo" class="logo-image me-2">
+                {{ end }}
                 <span class="site-title">{{ .Site.Title }}</span>
             </a>
             

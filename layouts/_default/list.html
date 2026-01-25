@@ -7,8 +7,15 @@
         {{ if .Content }}
         <div class="list-content">{{ .Content }}</div>
         {{ end }}
+        
+        {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
+        
+        <!-- 文章统计信息 -->
+        <div class="post-stats">
+            <p>总文章数: {{ len (where .Site.RegularPages "Type" "posts") }} | 总页数: {{ $paginator.TotalPages }}</p>
+        </div>
+        
         <div class="posts-list">
-            {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
             {{ range $paginator.Pages }}
             <a href="{{ .Permalink }}" class="post-link">
                 <article class="post-item">
@@ -18,9 +25,9 @@
                     <h2 class="post-title">{{ .Title }}</h2>
                     <div class="post-summary">
                         {{ if .Summary }}
-                            {{ substr .Summary 0 80 }}{{ if gt (len .Summary) 80 }}...{{ end }}
+                            {{ substr (.Summary | plainify) 0 80 }}{{ if gt (len (.Summary | plainify)) 80 }}...{{ end }}
                         {{ else }}
-                            {{ substr .Content 0 80 }}{{ if gt (len .Content) 80 }}...{{ end }}
+                            {{ substr (.Content | plainify) 0 80 }}{{ if gt (len (.Content | plainify)) 80 }}...{{ end }}
                         {{ end }}
                     </div>
                 </article>

@@ -1,4 +1,4 @@
-<footer class="site-footer bg-blue-700 text-white">
+<footer class="site-footer">
     <div class="footer-container">
         <div class="footer-content">
             <!-- Left column: Footer text -->
@@ -13,11 +13,47 @@
                 </div>
             </div>
             
-            <!-- Right column: QR code -->
+            <!-- Right column: Social media -->
             <div class="footer-right">
-                <div class="qrcode-container">
-                    <!-- WeChat QR code -->
-                    <img src="{{ "images/wechat-qr.jpg" | absURL }}" alt="WeChat QR Code" class="qrcode-image">
+                <h3>社交媒体</h3>
+                <div class="social-media-container">
+                    <!-- Social media icons -->
+                    {{ if .Site.Params.social.twitter }}
+                    <a href="{{ .Site.Params.social.twitter }}" target="_blank" class="social-media-icon">
+                        <i class="fab fa-twitter social-icon"></i>
+                    </a>
+                    {{ end }}
+                    {{ if .Site.Params.social.github }}
+                    <a href="{{ .Site.Params.social.github }}" target="_blank" class="social-media-icon">
+                        <i class="fab fa-github social-icon"></i>
+                    </a>
+                    {{ end }}
+                    {{ if .Site.Params.social.linkedin }}
+                    <a href="{{ .Site.Params.social.linkedin }}" target="_blank" class="social-media-icon">
+                        <i class="fab fa-linkedin social-icon"></i>
+                    </a>
+                    {{ end }}
+                    {{ if .Site.Params.social.weibo }}
+                    <a href="{{ .Site.Params.social.weibo }}" target="_blank" class="social-media-icon">
+                        <i class="fab fa-weibo social-icon"></i>
+                    </a>
+                    {{ end }}
+                    {{ if .Site.Params.social.email }}
+                    <a href="mailto:{{ .Site.Params.social.email }}" class="social-media-icon">
+                        <i class="fas fa-envelope social-icon"></i>
+                    </a>
+                    {{ end }}
+                    <!-- WeChat official accounts -->
+                    {{ if .Site.Params.social.wechat_official_1 }}
+                    <a href="#" class="social-media-icon wechat-official">
+                        <img src="{{ "images/wechat_offiicial_1.png" | absURL }}" alt="WeChat Official Account 1" class="wechat-official-icon">
+                    </a>
+                    {{ end }}
+                    {{ if .Site.Params.social.wechat_official_2 }}
+                    <a href="#" class="social-media-icon wechat-official">
+                        <img src="{{ "images/wechat_offiicial_2.png" | absURL }}" alt="WeChat Official Account 2" class="wechat-official-icon">
+                    </a>
+                    {{ end }}
                 </div>
             </div>
         </div>

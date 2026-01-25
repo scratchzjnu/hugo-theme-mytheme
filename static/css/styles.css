@@ -6,7 +6,7 @@
 }
 
 .bg-blue-700 {
-  background-color: #1d4ed8;
+  background: linear-gradient(to bottom, #1e40af, #1d4ed8);
 }
 
 .text-blue-500 {
@@ -167,12 +167,19 @@
   margin-top: 30px;
   padding: 28px 0;
   border-radius: 0 0 8px 8px;
+  background-color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(to right, #1e40af, #1d4ed8, #3b82f6) 1;
 }
 
 .footer-container {
   max-width: 1366px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%;
 }
 
 .footer-content {
@@ -196,17 +203,19 @@
 .footer-left h3 {
   font-size: 1.2rem;
   margin-bottom: 10px;
-  color: #f0f9ff;
+  color: #1d4ed8;
 }
 
 .footer-left p {
   margin-bottom: 7px;
   line-height: 1.4;
   font-size: 0.9rem;
+  color: #374151;
 }
 
 .footer-text {
   margin-top: 14px;
+  color: #374151;
 }
 
 .qrcode-container {
@@ -227,9 +236,62 @@
 }
 
 .qrcode-image {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   margin: 0 auto;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.footer-right h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #05133a;
+  text-align: center;
+}
+
+.social-media-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-media-icon {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(29, 78, 216, 0.1);
+  border-radius: 8px;
+}
+
+.social-media-icon:hover {
+  transform: scale(1.1);
+  background-color: rgba(29, 78, 216, 0.2);
+}
+
+.social-icon {
+  font-size: 24px;
+  color: #1d4ed8;
+}
+
+/* WeChat official account icons */
+.wechat-official {
+  width: 120px;
+  height: 120px;
+  background-color: transparent;
+}
+
+.wechat-official-icon {
+  width: 120px;
+  height: 120px;
   border-radius: 8px;
   object-fit: cover;
 }
@@ -237,8 +299,42 @@
 .footer-copyright {
   text-align: center;
   padding-top: 14px;
-  border-top: 1px solid rgba(240, 249, 255, 0.2);
+  border-top: 1px solid rgba(29, 78, 216, 0.2);
   font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* 分页控件样式 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.pagination-link {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  color: #1d4ed8;
+  text-decoration: none;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.pagination-link:hover {
+  background-color: #1d4ed8;
+  color: #ffffff;
+  border-color: #1d4ed8;
+}
+
+.pagination-link.prev {
+  border-radius: 4px 0 0 4px;
+}
+
+.pagination-link.next {
+  border-radius: 0 4px 4px 0;
 }
 
 /* Footer responsive styles */
@@ -326,18 +422,15 @@
 
 .feature-description {
   margin-top: 15px;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 0;
 }
 
 .feature-description p {
   margin: 0;
-  color: #4b5563;
+  color: #374151;
   line-height: 1.5;
-  font-size: 0.95rem;
-  font-weight: 400;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
 /* Right column: Latest posts (45%) */
@@ -358,30 +451,51 @@
   margin-bottom: 15px;
 }
 
+.latest-post-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .latest-post-item {
-  margin-bottom: 15px;
-  padding: 12px;
+  margin-bottom: 10px;
+  padding: 8px;
   border-bottom: 1px solid #e2e8f0;
   transition: all 0.3s ease;
   border-radius: 4px;
 }
 
 .latest-post-item:hover {
-  background-color: #1d4ed8;
-  color: #ffffff;
+  background-color: #f0f9ff;
+  transform: translateY(-1px);
+  border-radius: 0;
 }
 
-.latest-post-item:hover a {
-  color: #ffffff;
+.latest-post-link:hover {
+  color: inherit;
+}
+
+.latest-post-link:hover .post-title {
+  color: #1d4ed8;
+}
+
+.latest-post-item:hover .post-meta {
+  color: #64748b;
+}
+
+.latest-post-item:hover .post-summary {
+  color: #374151;
 }
 
 /* Post header with title and date */
-.post-header {
+.latest-post-item .post-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 0 !important;
   gap: 10px;
+  padding-bottom: 0 !important;
+  line-height: 1.2;
 }
 
 .post-title {
@@ -411,21 +525,26 @@
   margin-top: 0 !important;
   padding-top: 0 !important;
   gap: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .latest-post-item:hover .post-meta {
-  color: #e0e7ff;
+  color: #2d313f;
 }
 
-.post-summary {
+.latest-post-item .post-summary {
   color: #374151;
-  line-height: 1.5;
+  line-height: 1.4;
   transition: color 0.3s ease;
   font-size: 0.9rem;
+  margin-top: -4px !important;
+  padding-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .latest-post-item:hover .post-summary {
-  color: #f3f4f6;
+  color: #374151;
 }
 
 /* Read more link */
@@ -472,8 +591,17 @@
 
 .list-page h1 {
   font-size: 2rem;
-  margin-bottom: 30px;
-  color: #1d4ed8;
+  margin-bottom: 10px;
+  color: #1e293b;
+  text-align: center;
+}
+
+.post-stats {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #64748b;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
   text-align: center;
 }
 
@@ -621,6 +749,8 @@
   margin-top: 15px;
   padding-top: 15px;
   border-top: 1px solid #e2e8f0;
+  justify-content: center;
+  text-align: center;
 }
 
 .post-categories,
@@ -656,6 +786,14 @@
 .next-post {
   flex: 1 1 45%;
   min-width: 200px;
+}
+
+.prev-post {
+  text-align: left;
+}
+
+.next-post {
+  text-align: right;
 }
 
 .prev-post a,

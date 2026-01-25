@@ -6,14 +6,16 @@
         <div class="main-content">
             <!-- Left column: Feature image and description (55%) -->
             <div class="left-column">
+                {{ with .Site.Params.feature }}
                 <div class="feature-image-container">
                     <!-- Feature image -->
-                    <img src="{{ "images/feature.jpg" | absURL }}" alt="Feature Image" class="feature-image">
+                    <img src="{{ .feature_img | absURL }}" alt="Feature Image" class="feature-image">
                     <!-- Description text below the image -->
                     <div class="feature-description">
-                        <p>这里是feature.jpg图片的说明文字，可以根据需要进行修改。这张图片展示了我们网站的主题内容，希望能够吸引访问者的注意力。</p>
+                        <p>{{ .feature_description }}</p>
                     </div>
                 </div>
+                {{ end }}
             </div>
             
             <!-- Right column: Latest posts (45%) -->
@@ -21,21 +23,23 @@
                 <h2 class="latest-posts-title">最新更新</h2>
                 <div class="latest-posts-list">
                     {{ range first 3 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-                    <article class="latest-post-item">
-                        <div class="post-header">
-                            <h3 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-                            <div class="post-meta">
-                                <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+                    <a href="{{ .Permalink }}" class="latest-post-link">
+                        <article class="latest-post-item">
+                            <div class="post-header">
+                                <h3 class="post-title">{{ .Title }}</h3>
+                                <div class="post-meta">
+                                    <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="post-summary">
-                            {{ if .Summary }}
-                                {{ substr .Summary 0 100 }}{{ if gt (len .Summary) 100 }}...{{ end }}
-                            {{ else }}
-                                {{ substr .Content 0 100 }}{{ if gt (len .Content) 100 }}...{{ end }}
-                            {{ end }}
-                        </div>
-                    </article>
+                            <div class="post-summary">
+                                {{ if .Summary }}
+                                    {{ substr (.Summary | plainify) 0 100 }}{{ if gt (len (.Summary | plainify)) 100 }}...{{ end }}
+                                {{ else }}
+                                    {{ substr (.Content | plainify) 0 100 }}{{ if gt (len (.Content | plainify)) 100 }}...{{ end }}
+                                {{ end }}
+                            </div>
+                        </article>
+                    </a>
                     {{ end }}
                 </div>
                 <!-- Read more link -->

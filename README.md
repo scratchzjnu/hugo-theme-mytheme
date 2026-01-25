@@ -5,13 +5,126 @@
 ## 特性
 
 - 📱 **响应式设计**：适配桌面端、平板和移动设备
-- 🎨 **现代美观**：简洁优雅的界面，支持自定义颜色方案
+- 🎨 **现代美观**：简洁优雅的界面，蓝色渐变主题
 - 📄 **灵活布局**：首页双栏布局，左侧特色图片，右侧最新文章
 - 🏷️ **完善的文章功能**：支持分类、标签、日期和摘要
 - 🔍 **良好的SEO支持**：自动生成元数据和结构化数据
-- 📱 **社交媒体集成**：支持微信二维码展示
+- 📱 **社交媒体集成**：支持微信二维码展示和社交媒体图标
 - 📝 **版权声明**：内置版权信息展示
 - 💾 **轻量级**：优化的代码结构，快速加载速度
+- 🎯 **可配置性**：通过 `hugo.toml` 配置站点参数
+
+## 文件结构
+
+```
+my-theme/
+├── archetypes/          # 内容模板
+├── assets/              # 资源文件（CSS/JS）
+├── content/             # 示例内容
+├── exampleSite/         # 示例站点
+├── layouts/             # 页面模板
+│   ├── _default/        # 默认模板
+│   ├── partials/        # 可重用模板片段
+│   ├── index.html       # 首页模板
+│   └── 404.html         # 404页面
+├── static/              # 静态资源
+│   ├── css/             # 样式文件
+│   ├── js/              # JavaScript文件
+│   ├── images/          # 图片资源
+│   └── favicon.ico      # 网站图标
+├── README.md            # 主题文档
+├── theme.toml           # 主题配置
+└── hugo.toml            # 主题默认配置
+```
+
+## 样式特点
+
+### 颜色方案
+
+- **主色调**：蓝色渐变 (`#1e40af` 到 `#1d4ed8`)
+- **辅助色**：浅蓝色 (`#3b82f6`)
+- **背景色**：白色 (`#ffffff`) 和浅蓝灰色 (`#f0f9ff`)
+- **文本色**：深灰色 (`#374151`)、中灰色 (`#64748b`)
+
+### 布局特点
+
+- **首页布局**：55% 宽度的左侧特色图片区域，45% 宽度的右侧最新文章区域
+- **导航栏**：蓝色渐变背景，响应式设计
+- **页脚**：白色背景，顶部蓝色渐变横线，社交媒体图标居中
+- **文章列表**：悬停效果（浅蓝色背景，轻微上移，移除圆角）
+- **文章页面**：居中的元数据（发布日期、分类、标签）
+
+### 响应式设计
+
+- **桌面端** (> 1400px)：最大宽度 1366px，居中布局
+- **平板端** (900px - 1365px)：适配宽度，隐藏搜索框
+- **移动端** (< 900px)：垂直菜单，优化布局
+
+## 配置方法
+
+### 基本配置
+
+在你的站点根目录创建或修改 `hugo.toml` 文件：
+
+```toml
+baseURL = "https://your-site.com/"
+languageCode = "zh-CN"
+title = "你的站点标题"
+description = "你的站点描述"
+
+# 启用主题
+theme = "my-theme"
+
+# 分页配置
+[pagination]
+pagerSize = 3
+path = "page"
+
+# 菜单配置
+[[menu.main]]
+name = "首页"
+url = "/"
+weight = 10
+
+[[menu.main]]
+name = "博客"
+url = "/posts/"
+weight = 20
+
+[[menu.main]]
+name = "关于"
+url = "/about/"
+weight = 30
+```
+
+### 社交媒体配置
+
+```toml
+# 社交媒体配置
+[params.social]
+twitter = "https://twitter.com/example"
+github = "https://github.com/example"
+linkedin = "https://linkedin.com/in/example"
+weibo = "https://weibo.com/example"
+email = "your-email@example.com"
+wechat_official_1 = true  # 显示第一个微信公众号二维码
+wechat_official_2 = false # 显示第二个微信公众号二维码
+```
+
+### 首页配置
+
+```toml
+# 首页配置
+[params]
+description = "欢迎来到我的网站"  # 站点描述
+mainSections = ["posts"]           # 主要内容部分
+logo = true                         # 显示logo
+
+# 首页Feature配置
+[params.feature]
+feature_img = "images/feature.jpg"  # 特色图片路径
+feature_description = "这里是特色图片的说明文字，可以根据需要进行修改。"  # 特色图片描述
+```
 
 ## 安装
 
@@ -36,203 +149,127 @@ git submodule add https://github.com/scratchzjnu/hugo-theme-mytheme.git themes/m
 复制主题的示例配置文件到你的站点根目录：
 
 ```bash
-cp themes/my-theme/exampleSite/config.toml .
+cp themes/my-theme/exampleSite/hugo.toml .
 ```
 
-编辑 `config.toml` 文件，根据你的需求修改以下内容：
+### 2. 创建内容
 
-```toml
-baseURL = "https://your-site.com/"
-languageCode = "zh-cn"
-title = "你的站点标题"
-
-[params]
-  description = "你的站点描述"
-  author = "你的名字"
-  email = "your-email@example.com"
-  
-  # 主菜单
-  [[params.menu]]
-    name = "首页"
-    url = "/"
-    weight = 1
-  
-  [[params.menu]]
-    name = "文章"
-    url = "/posts/"
-    weight = 2
-  
-  [[params.menu]]
-    name = "关于"
-    url = "/about/"
-    weight = 3
-```
-
-### 2. 创建首页特色图片
-
-在 `static/images/` 目录下添加 `feature.jpg` 文件，这将显示在首页左侧。
-
-### 3. 创建文章
-
-使用 Hugo 命令创建新文章：
+在 `content/posts` 目录创建你的第一篇文章：
 
 ```bash
-hugo new posts/my-first-post.md
+mkdir -p content/posts
+touch content/posts/my-first-post.md
 ```
 
-编辑生成的 Markdown 文件，添加文章内容：
+编辑 `my-first-post.md` 文件：
 
-```markdown
-+++
-title = "我的第一篇文章"
-date = 2026-01-24T10:00:00+08:00
-draft = false
-tags = ["教程", "Hugo"]
-categories = ["技术"]
-+++
+```yaml
+---
+title: "我的第一篇文章"
+date: 2026-01-25T10:00:00+08:00
+draft: false
+categories:
+  - 技术
+tags:
+  - Hugo
+  - 静态站点
+---
 
-这里是文章内容...
+这是我的第一篇文章内容...
 ```
 
-### 4. 本地预览
+### 3. 启动开发服务器
 
-启动 Hugo 开发服务器：
+在你的站点根目录执行以下命令：
 
 ```bash
 hugo server -D
 ```
 
-在浏览器中访问 `http://localhost:1313/` 查看站点效果。
+访问 `http://localhost:1313/` 查看你的站点。
 
-### 5. 构建站点
+## 自定义选项
 
-当你准备好部署站点时，执行以下命令：
+### 1. 替换Logo
 
-```bash
-hugo
-```
+将你的Logo图片命名为 `logo.png`，并放置在 `static/images/` 目录。
 
-生成的静态文件会保存在 `public` 目录中，你可以将这些文件部署到任何静态网站托管服务。
+### 2. 替换特色图片
 
-## 配置选项
+将你的特色图片命名为 `feature.jpg`，并放置在 `static/images/` 目录。
 
-### 站点参数
+### 3. 微信公众号二维码
 
-在 `config.toml` 文件的 `[params]` 部分，你可以配置以下选项：
+将你的微信公众号二维码图片命名为 `wechat_offiicial_1.png` 和 `wechat_offiicial_2.png`，并放置在 `static/images/` 目录。
 
-| 选项 | 描述 | 默认值 |
-|------|------|--------|
-| `description` | 站点描述，用于 SEO | "" |
-| `author` | 站点作者 | "" |
-| `email` | 联系邮箱 | "" |
-| `social` | 社交媒体链接 | [] |
+### 4. 修改样式
 
-### 菜单配置
+编辑 `static/css/styles.css` 文件，自定义主题样式。
 
-通过 `[[params.menu]]` 配置站点菜单：
+## 响应式设计
 
-```toml
-[[params.menu]]
-  name = "首页"    # 菜单名称
-  url = "/"       # 链接地址
-  weight = 1      # 排序权重
-```
+主题采用移动优先的响应式设计，在不同设备上都能提供良好的用户体验：
 
-### 微信二维码
+- **桌面端**：双栏布局，完整功能
+- **平板端**：适配宽度，优化布局
+- **移动端**：单栏布局，汉堡菜单
 
-在 `static/images/` 目录下添加 `wechat-qr.jpg` 文件，二维码会自动显示在页脚。
+## 社交媒体集成
 
-## 布局说明
+主题支持集成多种社交媒体平台：
 
-### 首页布局
-
-- **左侧栏（55%）**：显示特色图片 `feature.jpg` 和说明文字
-- **右侧栏（45%）**：显示最新的 3 篇文章，包含标题、日期和 100 字摘要
-
-### 文章列表页
-
-- 显示所有文章，按日期倒序排列
-- 每篇文章显示日期、标题和 80 字摘要
-- 文章之间有水平分隔线
-- 鼠标悬停时显示高亮效果
-
-### 单页布局
-
-- 文章标题和发布日期
-- 文章元数据（分类、标签）
-- 文章内容
-- 上一篇/下一篇文章导航
-- 版权声明
-
-## 自定义样式
-
-### 修改主题颜色
-
-编辑 `static/css/styles.css` 文件，修改 `:root` 中的 CSS 变量：
-
-```css
-:root {
-  --primary-color: #1d4ed8;       /* 主要颜色 */
-  --secondary-color: #3b82f6;     /* 次要颜色 */
-  --text-color: #1e293b;          /* 文本颜色 */
-  --background-color: #ffffff;    /* 背景颜色 */
-  --border-color: #e2e8f0;        /* 边框颜色 */
-}
-```
-
-### 修改首页特色图片说明
-
-编辑 `layouts/index.html` 文件，修改特色图片下方的描述文字：
-
-```html
-<div class="feature-description">
-  <p>这里是feature.jpg图片的说明文字，可以根据需要进行修改。</p>
-</div>
-```
-
-## 示例站点
-
-查看 `exampleSite` 目录，了解如何配置和使用主题。
+- Twitter
+- GitHub
+- LinkedIn
+- 微博
+- 电子邮件
+- 微信公众号（二维码）
 
 ## 常见问题
 
-### 1. 首页特色图片不显示
+### Q: 如何修改导航菜单？
 
-- 确保图片文件名为 `feature.jpg`
-- 确保图片位于 `static/images/` 目录
-- 检查 Hugo 服务器是否正在运行，或重新启动服务器
+A: 在 `hugo.toml` 文件中修改 `[menu.main]` 部分。
 
-### 2. 页脚微信二维码不显示
+### Q: 如何隐藏Logo？
 
-- 确保图片文件名为 `wechat-qr.jpg`
-- 确保图片位于 `static/images/` 目录
+A: 在 `hugo.toml` 文件中设置 `logo = false`。
 
-### 3. 文章摘要不显示
+### Q: 如何修改特色图片？
 
-- 确保文章中包含 `<!--more-->` 分隔符，或在前置元数据中设置 `summary` 字段
-- 主题会自动截取文章前 100 字作为摘要（首页）或 80 字（列表页）
+A: 将你的图片命名为 `feature.jpg` 并放置在 `static/images/` 目录，或在 `hugo.toml` 中修改 `feature_img` 参数。
 
-## 浏览器支持
+### Q: 如何添加新的社交媒体链接？
+
+A: 在 `hugo.toml` 文件中的 `[params.social]` 部分添加新的链接。
+
+## 示例站点
+
+主题包含一个示例站点，位于 `exampleSite/` 目录，你可以参考它来了解如何配置和使用主题。
+
+## 浏览器兼容性
 
 - Chrome (最新版)
 - Firefox (最新版)
 - Safari (最新版)
 - Edge (最新版)
 
-## 贡献
-
-欢迎提交 Issue 和 Pull Request 来帮助改进这个主题！
-
 ## 许可证
 
-本主题采用 [MIT 许可证](LICENSE)。
+MIT License
 
-## 鸣谢
+## 贡献
 
-- [Hugo](https://gohugo.io/) - 优秀的静态站点生成器
-- [Bootstrap](https://getbootstrap.com/) - 前端框架
-- [Font Awesome](https://fontawesome.com/) - 图标库
+欢迎提交 Issue 和 Pull Request 来改进这个主题！
 
----
+## 更新日志
 
-**享受使用 My Theme 构建你的网站！** 🎉
+### v1.0.0 (2026-01-25)
+
+- 初始发布
+- 响应式设计
+- 蓝色渐变主题
+- 首页双栏布局
+- 社交媒体集成
+- 微信公众号二维码支持
+- 版权声明
