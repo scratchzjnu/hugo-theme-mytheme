@@ -1,66 +1,62 @@
-<footer class="site-footer">
-    <div class="footer-container">
-        <div class="footer-content">
-            <!-- Left column: Footer text -->
-            <div class="footer-left">
-                <h3>{{ .Site.Title }}</h3>
+<footer class="bg-light text-dark mt-4 py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <h3 class="text-dark font-bold">联系我们</h3>
                 {{ if .Site.Params.description }}
-                <p>{{ .Site.Params.description }}</p>
+                <p class="text-dark">{{ .Site.Params.description }}</p>
                 {{ end }}
-                <div class="footer-text">
-                    <p>感谢您访问我们的网站！</p>
-                    <p>我们致力于提供优质的内容和服务，希望您在这里找到有价值的信息。</p>
+                <div class="text-dark">
+                    <p>感谢访问我们的网站！</p>
+                    <p>我们致力于提供优质的内容和服务，希望你在这里找到有价值的信息。</p>
                 </div>
             </div>
             
-            <!-- Right column: Social media -->
-            <div class="footer-right">
-                <h3>社交媒体</h3>
-                <div class="social-media-container">
-                    <!-- Social media icons -->
-                    {{ if .Site.Params.social.twitter }}
-                    <a href="{{ .Site.Params.social.twitter }}" target="_blank" class="social-media-icon">
-                        <i class="fab fa-twitter social-icon"></i>
-                    </a>
-                    {{ end }}
-                    {{ if .Site.Params.social.github }}
-                    <a href="{{ .Site.Params.social.github }}" target="_blank" class="social-media-icon">
-                        <i class="fab fa-github social-icon"></i>
-                    </a>
-                    {{ end }}
-                    {{ if .Site.Params.social.linkedin }}
-                    <a href="{{ .Site.Params.social.linkedin }}" target="_blank" class="social-media-icon">
-                        <i class="fab fa-linkedin social-icon"></i>
-                    </a>
-                    {{ end }}
-                    {{ if .Site.Params.social.weibo }}
-                    <a href="{{ .Site.Params.social.weibo }}" target="_blank" class="social-media-icon">
-                        <i class="fab fa-weibo social-icon"></i>
-                    </a>
-                    {{ end }}
-                    {{ if .Site.Params.social.email }}
-                    <a href="mailto:{{ .Site.Params.social.email }}" class="social-media-icon">
-                        <i class="fas fa-envelope social-icon"></i>
-                    </a>
-                    {{ end }}
-                    <!-- WeChat official accounts -->
-                    {{ if .Site.Params.social.wechat_official_1 }}
-                    <a href="#" class="social-media-icon wechat-official">
-                        <img src="{{ "images/wechat_offiicial_1.png" | absURL }}" alt="WeChat Official Account 1" class="wechat-official-icon">
+            <div class="col-md-6">
+                <h3 class="text-center text-dark font-bold">社交媒体</h3>
+                <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mt-3">
+                      {{ if .Site.Params.social.wechat_official_1 }}
+                    <a href="#" class="text-decoration-none">
+                        <img src="{{ "images/wechat_offiicial_1.png" | absURL }}" alt="WeChat Official Account 1" class="shadow-sm" style="width: 120px; height: 120px;">
                     </a>
                     {{ end }}
                     {{ if .Site.Params.social.wechat_official_2 }}
-                    <a href="#" class="social-media-icon wechat-official">
-                        <img src="{{ "images/wechat_offiicial_2.png" | absURL }}" alt="WeChat Official Account 2" class="wechat-official-icon">
+                    <a href="#" class="text-decoration-none">
+                        <img src="{{ "images/wechat_offiicial_2.png" | absURL }}" alt="WeChat Official Account 2" class="rounded shadow-sm" style="width: 120px; height: 120px;">
                     </a>
                     {{ end }}
+                    {{ if .Site.Params.social.twitter }}
+                    <a href="{{ .Site.Params.social.twitter }}" target="_blank" class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm hover:bg-white hover:text-dark transition-colors duration-300" style="width: 50px; height: 50px;">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    {{ end }}
+                    {{ if .Site.Params.social.github }}
+                    <a href="{{ .Site.Params.social.github }}" target="_blank" class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm hover:bg-white hover:text-dark transition-colors duration-300" style="width: 50px; height: 50px;">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    {{ end }}
+                    {{ if .Site.Params.social.linkedin }}
+                    <a href="{{ .Site.Params.social.linkedin }}" target="_blank" class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm hover:bg-white hover:text-dark transition-colors duration-300" style="width: 50px; height: 50px;">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    {{ end }}
+                    {{ if .Site.Params.social.weibo }}
+                    <a href="{{ .Site.Params.social.weibo }}" target="_blank" class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm hover:bg-white hover:text-dark transition-colors duration-300" style="width: 50px; height: 50px;">
+                        <i class="fab fa-weibo"></i>
+                    </a>
+                    {{ end }}
+                    {{ if .Site.Params.social.email }}
+                    <a href="mailto:{{ .Site.Params.social.email }}" class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm hover:bg-white hover:text-dark transition-colors duration-300" style="width: 50px; height: 50px;">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    {{ end }}
+                  
                 </div>
             </div>
         </div>
         
-        <!-- Copyright -->
-        <div class="footer-copyright">
-            <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</p>
+        <div class="text-center text-dark pt-3 border-top border-gray-300 mt-3">
+            <p class="mb-0">&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</p>
         </div>
     </div>
 </footer>

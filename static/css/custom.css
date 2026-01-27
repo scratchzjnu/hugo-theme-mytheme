@@ -1,0 +1,189 @@
+/**
+ * 自定义样式
+ * 补充Bootstrap没有直接提供的样式
+ * 
+ * 使用情况：
+ * .card-body - 在 single.html 和 index.html 中被使用
+ * .nav-link - 在 header.html 和 nav.html 中被使用
+ * .navbar-nav - 在 header.html 中被使用
+ * .btn-outline-secondary:hover - 在 footer.html 中被使用
+ * .btn-outline-primary:hover - 在 single.html 中被使用
+ * .badge.bg-primary:hover - 在 single.html 和 terms.html 中被使用
+ * .badge.bg-info:hover - 在 single.html 中被使用
+ * .page-link:hover - 在 list.html 中被使用
+ * .list-group-item:hover - 在 index.html、list.html 和 terms.html 中被使用
+ * .card - 在 single.html、index.html 中被使用
+ * .category-item - 在 terms.html 中被使用
+ * .no-hover - 在 list.html 中被使用
+ */
+
+/* 禁用悬停效果 */
+.btn.no-hover:hover {
+  background-color: transparent !important;
+  border-color: #6c757d !important;
+  color: #6c757d !important;
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+/* 确保禁用状态的按钮悬停时不变色 */
+.page-item.disabled .btn:hover {
+  background-color: transparent !important;
+  border-color: #6c757d !important;
+  color: #6c757d !important;
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+/* 分类导航菜单项悬停效果 */
+.category-item {
+  transition: all 0.3s ease;
+}
+
+.category-item:hover {
+  background-color: #0d6efd !important;
+  color: #ffffff !important;
+}
+
+.category-item:hover .badge {
+  background-color: #ffffff !important;
+  color: #0d6efd !important;
+}
+
+/* Content styling enhancements */
+.card-body {
+  line-height: 1.8;
+}
+
+.card-body h2 {
+  font-size: 1.5rem;
+  margin: 30px 0 15px;
+  color: #0d6efd;
+}
+
+.card-body h3 {
+  font-size: 1.3rem;
+  margin: 25px 0 12px;
+  color: #0d6efd;
+}
+
+.card-body p {
+  margin-bottom: 15px;
+}
+
+.card-body img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+
+.card-body a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.card-body a:hover {
+  text-decoration: underline;
+}
+
+/* 导航链接悬停效果 */
+.nav-link:hover {
+  background-color: #ffffff;
+  color: #0d6efd !important;
+  transition: all 0.3s ease;
+}
+
+/* 导航链接激活状态 */
+.nav-link.active {
+  background-color: #ffffff;
+  color: #0d6efd !important;
+  font-weight: 600;
+}
+
+/* 导航分隔线垂直居中 */
+.navbar-nav span {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* 确保导航项垂直居中 */
+.navbar-nav {
+  align-items: center;
+}
+
+/* 导航链接间距和高度调整 */
+.nav-link {
+  margin: 0 0.5rem;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* 社交媒体图标悬停效果 */
+.btn-outline-secondary:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  transition: all 0.3s ease;
+}
+
+/* 社交媒体图标悬停效果 */
+.btn-outline-primary:hover {
+  transform: scale(1.1);
+}
+
+/* 分类标签悬停效果 */
+.badge.bg-primary:hover {
+  background-color: #0a58ca !important;
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+}
+
+/* 标签悬停效果 */
+.badge.bg-info:hover {
+  background-color: #087f8c !important;
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+}
+
+/* 分页按钮悬停效果 */
+.page-link:hover {
+  transform: none !important;
+  transition: all 0.3s ease;
+}
+
+/* 上一篇/下一篇按钮悬停效果 */
+.btn:hover {
+  transform: none !important;
+  transition: all 0.3s ease;
+}
+
+/* List group hover effects */
+.list-group-item:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Card hover effects */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card-body h2 {
+    font-size: 1.3rem;
+  }
+  
+  .card-body h3 {
+    font-size: 1.2rem;
+  }
+}

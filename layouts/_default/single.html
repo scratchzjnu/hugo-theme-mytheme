@@ -1,59 +1,55 @@
 {{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
-<section class="single-page">
+<section class="py-5">
     <div class="container">
-        <article class="post">
-            <header class="post-header">
-                <h1>{{ .Title }}</h1>
-                <div class="post-meta">
-                    <span class="post-date">发表时间：{{ .Date.Format "2006-01-02" }}</span>
-                    {{ with .Params.categories }}
-                    <span class="post-categories">
-                        分类：{{ range . }}
-                        <a href="{{ "categories/" | absURL }}{{ . | urlize }}">{{ . }}</a>
-                        {{ end }}
-                    </span>
-                    {{ end }}
-                    {{ with .Params.tags }}
-                    <span class="post-tags">
-                        标签：{{ range . }}
-                        <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
-                        {{ end }}
-                    </span>
-                    {{ end }}
-                </div>
-            </header>
-            <div class="post-content">
-                {{ .Content }}
-            </div>
+        <div class="row">
+                <article class="card shadow-sm border-0">
+                    <header class="card-header text-center">
+                        <h1 class="text-dark">{{ .Title }}</h1>
+                        <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mt-3 pt-3 border-top">
+                            <span class="text-muted">发表时间：{{ .Date.Format "2006-01-02" }}</span>
+                            {{ with .Params.categories }}
+                            <span class="text-muted">分类：{{ range . }}<a href="{{ "categories/" | absURL }}{{ . | urlize }}" class="badge bg-primary text-white rounded-sm ms-1 text-decoration-none" style="font-size: inherit;font-weight: normal;">{{ . }}</a>{{ end }}</span>
+                            {{ end }}
+                            {{ with .Params.tags }}
+                            <span class="text-muted">标签：{{ range . }}<a href="{{ "tags/" | absURL }}{{ . | urlize }}" class="badge bg-info text-white rounded-sm ms-1 text-decoration-none" style="font-size: inherit; font-weight: normal;">{{ . }}</a>{{ end }}</span>
+                            {{ end }}
+                        </div>
+                    </header>
+                    <div class="card-body">
+                        {{ .Content }}
+                    </div>
 
-                        <!-- Author copyright statement -->
-            <div class="copyright-statement">
-                <h3>版权声明</h3>
-                <p>自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</p>
-                <p>作者：iLester （service@ilester.net）</p>
-                <p>发表日期：{{ .Date.Format "2006年01月02日" }}</p>
+                    <div class="card-footer bg-light">
+                        <div class="card bg-white mb-4 border-0">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">版权声明</h5>
+                                <p class="card-text mb-1">自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</p>
+                                <p class="card-text mb-1">作者：iLester （service@ilester.net）</p>
+                                <p class="card-text mb-0">发表日期：{{ .Date.Format "2006年01月02日" }}</p>
+                                 <p class="card-text mb-0">引用本文：{{ .Site.Params.author }}.{{ .Title }}(EB/OL).{{ .Permalink }}.发布时间：{{ .Date.Format "2006.01" }}. 获取时间：{{ now.Format "2006.01" }}</p>
+                            </div>
+                        </div>
+                                      
+                        <div class="row">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                {{ with .PrevInSection }}
+                                <a href="{{ .Permalink }}" class="btn btn-outline-primary w-100">上一篇：{{ .Title }}</a>
+                                {{ end }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ with .NextInSection }}
+                                <a href="{{ .Permalink }}" class="btn btn-outline-primary w-100">下一篇：{{ .Title }}</a>
+                                {{ end }}
+                            </div>
+                        </div>
+                    
+                    {{ partial "single_footer.html" . }}
+                </article>
             </div>
             
-            <!-- Previous/Next navigation -->
-            <div class="post-navigation">
-                <div class="prev-post">
-                    {{ with .PrevInSection }}
-                    <a href="{{ .Permalink }}">上一篇：{{ .Title }}</a>
-                    {{ end }}
-                </div>
-                <div class="next-post">
-                    {{ with .NextInSection }}
-                    <a href="{{ .Permalink }}">下一篇：{{ .Title }}</a>
-                    {{ end }}
-                </div>
-            </div>
-            
-
-            
-            {{ partial "single_footer.html" . }}
-        </article>
+        </div>
     </div>
 </section>
 {{ end }}

@@ -1,39 +1,33 @@
-<header class="site-header bg-blue-50">
-    <nav class="navbar navbar-expand-lg bg-blue-700 text-white">
-        <div class="container-fluid">
-            <!-- Left section: Logo, Site Title -->
+<header class="mb-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ .Site.Home.Permalink }}">
                 {{ if .Site.Params.logo }}
-                <img src="{{ "images/logo.png" | absURL }}" alt="{{ .Site.Title }} Logo" class="logo-image me-2">
+                <img src="{{ "images/logo.png" | absURL }}" alt="{{ .Site.Title }} Logo" class="me-2" style="height: 40px;">
                 {{ end }}
-                <span class="site-title">{{ .Site.Title }}</span>
+                <span>{{ .Site.Title }}</span>
             </a>
             
-            <!-- Toggle button for collapsed menu -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon text-white"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             
-            <!-- Collapsible content -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <!-- Menu Items and Social Icons -->
                 <div class="d-flex align-items-center justify-content-end w-100">
-                    <!-- Menu Items -->
                     <div class="navbar-nav">
                         {{ $site := .Site }}
                         {{ $menuLen := len $site.Menus.main }}
                         {{ range $index, $item := $site.Menus.main }}
-                        <a class="nav-link text-white" href="{{ $item.URL }}">{{ $item.Name }}</a>
+                        <a class="nav-link text-light px-3 py-3 rounded" href="{{ $item.URL }}">{{ $item.Name }}</a>
                         {{ if not (eq $index (sub $menuLen 1)) }}
-                        <span class="text-white mx-2 d-none d-lg-inline">|</span>
+                        <span class="mx-2 d-none d-lg-inline text-light align-self-center">|</span>
                         {{ end }}
                         {{ end }}
                     </div>
-                    
-
                 </div>
             </div>
         </div>
     </nav>
+    <link rel="stylesheet" href="{{ "css/custom.css" | absURL }}">
     {{ partial "header_includes.html" . }}
 </header>
