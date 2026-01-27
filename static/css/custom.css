@@ -116,7 +116,7 @@
 
 /* 导航链接间距和高度调整 */
 .nav-link {
-  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
   min-height: 48px;
   display: flex;
   align-items: center;

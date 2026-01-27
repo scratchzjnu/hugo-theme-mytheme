@@ -18,7 +18,7 @@
                         {{ $site := .Site }}
                         {{ $menuLen := len $site.Menus.main }}
                         {{ range $index, $item := $site.Menus.main }}
-                        <a class="nav-link text-light px-3 py-3 rounded" href="{{ $item.URL }}">{{ $item.Name }}</a>
+                        <a class="nav-link text-light rounded" href="{{ $item.URL }}">{{ $item.Name }}</a>
                         {{ if not (eq $index (sub $menuLen 1)) }}
                         <span class="mx-2 d-none d-lg-inline text-light align-self-center">|</span>
                         {{ end }}
