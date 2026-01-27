@@ -27,6 +27,14 @@
             <div class="post-content">
                 {{ .Content }}
             </div>
+
+                        <!-- Author copyright statement -->
+            <div class="copyright-statement">
+                <h3>版权声明</h3>
+                <p>自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</p>
+                <p>作者：iLester （service@ilester.net）</p>
+                <p>发表日期：{{ .Date.Format "2006年01月02日" }}</p>
+            </div>
             
             <!-- Previous/Next navigation -->
             <div class="post-navigation">
@@ -42,13 +50,7 @@
                 </div>
             </div>
             
-            <!-- Author copyright statement -->
-            <div class="copyright-statement">
-                <h3>版权声明</h3>
-                <p>自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</p>
-                <p>作者：iLester （service@ilester.net）</p>
-                <p>发表日期：{{ .Date.Format "2006年01月02日" }}</p>
-            </div>
+
             
             {{ partial "single_footer.html" . }}
         </article>

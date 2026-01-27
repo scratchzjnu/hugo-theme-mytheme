@@ -273,3 +273,109 @@ MIT License
 - 社交媒体集成
 - 微信公众号二维码支持
 - 版权声明
+
+### v1.1.0 (2026-01-27)
+
+- 集成 json-render 支持
+- 添加本地 Bootstrap 6.4.0 和 Font Awesome 6.4.0
+- 优化主题文件结构
+- 修复字体文件路径问题
+
+## JSON Render 集成
+
+my-theme 主题集成了 Vercel Labs 的 json-render 库，允许你通过 JSON 结构生成 UI 组件，支持 AI 生成 UI 的约束性生成。
+
+### 特性
+
+- **有护栏** — AI 只能使用你目录中的组件
+- **可预测** — JSON 输出始终符合你的模式
+- **快速** — 随着模型响应，流式传输并逐步渲染
+
+### 可用组件
+
+- **Card** — 卡片组件
+- **Heading** — 标题组件（h1-h6）
+- **Paragraph** — 段落组件
+- **Button** — 按钮组件
+- **TextField** — 文本输入组件
+- **Grid** — 网格布局组件
+- **Image** — 图片组件
+- **Link** — 链接组件
+- **List** — 列表组件（ul/ol）
+- **ListItem** — 列表项组件
+- **Divider** — 分隔线组件
+- **Container** — 容器组件
+
+### 可用动作
+
+- **navigate** — 导航到指定页面
+- **show_message** — 显示通知消息
+- **submit_form** — 提交表单数据
+- **toggle_theme** — 切换深色/浅色主题
+
+### 如何使用
+
+1. **查看示例**：访问 `/json-render/` 页面查看完整示例
+
+2. **引入脚本**：在你的页面中引入必要的脚本
+
+   ```html
+   <!-- 在页面底部引入 -->
+   <script type="module" src="{{ "js/json-render/index.js" | absURL }}"></script>
+   ```
+
+3. **创建容器**：在你的页面中创建一个容器元素
+
+   ```html
+   <div id="json-render-container"></div>
+   ```
+
+4. **渲染 UI**：使用 `jsonRender.render()` 函数来渲染 JSON 树
+
+   ```javascript
+   // 示例 JSON 树
+   const jsonTree = {
+     type: 'Card',
+     props: {
+       title: 'Hello json-render',
+       className: 'mb-4'
+     },
+     children: [
+       {
+         type: 'Paragraph',
+         props: {
+           text: 'This is a demonstration of json-render in my-theme.'
+         }
+       },
+       {
+         type: 'Button',
+         props: {
+           label: 'Click Me',
+           variant: 'primary',
+           action: {
+             type: 'show_message',
+             payload: {
+               message: 'Button clicked!'
+             }
+           }
+         }
+       }
+     ]
+   };
+
+   // 渲染到容器
+   jsonRender.render('json-render-container', jsonTree);
+   ```
+
+### 自定义配置
+
+- **修改组件**：编辑 `static/js/json-render/config.js` 文件，定义你的组件和动作
+- **修改渲染**：编辑 `static/js/json-render/components.js` 文件，实现组件的渲染逻辑
+
+## 技术栈
+
+- **前端框架**：Hugo + Bootstrap 6.4.0
+- **图标库**：Font Awesome 6.4.0（本地）
+- **AI 工具**：json-render
+- **样式**：CSS3 + 响应式设计
+- **部署**：支持 Vercel 部署
