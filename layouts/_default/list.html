@@ -10,7 +10,7 @@
                 {{ end }}
                 {{ $paginator := .Paginate .Pages }}
                 
-                <div class="text-center text-muted mb-4 pb-3 border-bottom">
+                <div class="text-center text-muted mb-4 pb-3">
                     <p class="mb-0">总文章数: {{ len .Pages }} | 总页数: {{ $paginator.TotalPages }}</p>
                 </div>
                 

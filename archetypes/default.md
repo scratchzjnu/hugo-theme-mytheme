@@ -1,9 +1,9 @@
 +++
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
 date = '{{ .Date }}'
-draft = true
+draft = false
 description = ""
-tags = []
-categories = []
+tags = ["",]
+categories = ["",]
 author = "{{ .Site.Params.author }}"
 +++

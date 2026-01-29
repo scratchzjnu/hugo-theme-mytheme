@@ -7,7 +7,7 @@
                 <article class="card shadow-sm border-0">
                     <header class="card-header text-center">
                         <h1 class="text-dark">{{ .Title }}</h1>
-                        <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mt-3 pt-3 border-top">
+                        <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mt-3 pt-3">
                             <span class="text-muted">发表时间：{{ .Date.Format "2006-01-02" }}</span>
                             {{ with .Params.categories }}
                             <span class="text-muted">分类：{{ range . }}<a href="{{ "categories/" | absURL }}{{ . | urlize }}" class="badge bg-primary text-white rounded-sm ms-1 text-decoration-none" style="font-size: inherit;font-weight: normal;">{{ . }}</a>{{ end }}</span>
