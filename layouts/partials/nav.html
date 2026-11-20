@@ -4,7 +4,7 @@
         {{ $menuLen := len $site.Menus.main }}
         {{ range $index, $item := $site.Menus.main }}
         <li class="nav-item">
-            <a href="{{ .URL }}" class="nav-link text-primary font-medium px-3 py-2">
+            <a href="{{ .URL }}" class="nav-link text-primary px-3 py-2">
                 {{ .Name }}
             </a>
         </li>

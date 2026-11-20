@@ -1,16 +1,16 @@
-<footer class="bg-light text-dark mt-4 py-5 dark-footer">
+<footer class="mt-4 py-5 dark-footer">
     <div class="container">
         <div class="row d-flex">
             <div class="col-md-6 d-flex flex-column justify-content-center mb-3">
-                <h3 class="text-center text-dark font-bold dark-footer-title">联系我们</h3>
+                <h3 class="text-center dark-footer-title">联系我们</h3>
                 {{ if .Site.Params.contact }}
-                <p class="text-dark flex-grow-1 d-flex align-items-center dark-footer-text">{{ .Site.Params.contact |
+                <p class="flex-grow-1 d-flex align-items-center dark-footer-text">{{ .Site.Params.contact |
                     replaceRE "\n" "<br>" | safeHTML }}</p>
                 {{ end }}
             </div>
 
             <div class="col-md-6 d-flex flex-column justify-content-center">
-                <h3 class="text-center text-dark font-bold dark-footer-title">社交媒体</h3>
+                <h3 class="text-center dark-footer-title">社交媒体</h3>
 
                 <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mt-3">
                     <!-- 公众号二维码1 -->
@@ -37,7 +37,7 @@
                     <!-- Twitter，现在的X -->
                     {{ if .Site.Params.social.twitter }}
                     <a href="{{ .Site.Params.social.twitter }}" target="_blank"
-                        class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm hover:bg-white hover:text-dark transition-colors duration-300"
+                        class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm"
                         style="width: 50px; height: 50px;">
                         <i class="fab fa-twitter"></i>
                     </a>
@@ -45,7 +45,7 @@
                     <!-- github -->
                     {{ if .Site.Params.social.github }}
                     <a href="{{ .Site.Params.social.github }}" target="_blank"
-                        class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm hover:bg-white hover:text-dark transition-colors duration-300"
+                        class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm"
                         style="width: 50px; height: 50px;">
                         <i class="fab fa-github"></i>
                     </a>
@@ -53,7 +53,7 @@
                     <!-- linkedin -->
                     {{ if .Site.Params.social.linkedin }}
                     <a href="{{ .Site.Params.social.linkedin }}" target="_blank"
-                        class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm hover:bg-white hover:text-dark transition-colors duration-300"
+                        class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm"
                         style="width: 50px; height: 50px;">
                         <i class="fab fa-linkedin"></i>
                     </a>
@@ -61,7 +61,7 @@
                     <!-- sina weibo -->
                     {{ if .Site.Params.social.weibo }}
                     <a href="{{ .Site.Params.social.weibo }}" target="_blank"
-                        class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm hover:bg-white hover:text-dark transition-colors duration-300"
+                        class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm"
                         style="width: 50px; height: 50px;">
                         <i class="fab fa-weibo"></i>
                     </a>
@@ -69,7 +69,7 @@
                     <!-- email -->
                     {{ if .Site.Params.social.email }}
                     <a href="mailto:{{ .Site.Params.social.email }}"
-                        class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm hover:bg-white hover:text-dark transition-colors duration-300"
+                        class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center shadow-sm"
                         style="width: 50px; height: 50px;">
                         <i class="fas fa-envelope"></i>
                     </a>
@@ -79,7 +79,7 @@
             </div>
         </div>
 
-        <div class="text-center text-dark pt-3 border-top border-gray-300 mt-3 dark-footer-text">
+        <div class="text-center pt-3 border-top mt-3 dark-footer-text">
             <p class="mb-0">&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</p>
         </div>
     </div>

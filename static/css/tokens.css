@@ -1,0 +1,112 @@
+/**
+ * 设计令牌（Design Tokens）
+ * ----------------------------------------------------------------------------
+ * 日间与夜间共用同一套「品牌蓝色阶」和「中性灰阶」，两种模式只是
+ * 从同一色阶中取不同亮度档位，不引入靛蓝 / 青色等额外色相，
+ * 从而保证色调一致、改动只需一处。
+ *
+ * 同时把 Bootstrap 5.3 的 CSS 变量映射到令牌，
+ * 让 btn-* / bg-* / text-* / border-* 等原生组件自动跟随主题。
+ *
+ * 加载顺序：bootstrap.min.css → tokens.css → syntax.css → custom.css
+ */
+
+:root,
+[data-bs-theme="light"] {
+  color-scheme: light;
+
+  /* 品牌：蓝色色阶（两种模式共用，不再另立靛蓝色相） */
+  --brand-50:  #e7f1ff;
+  --brand-100: #cfe2ff;
+  --brand-200: #b6d4fe;
+  --brand-300: #86b7fe;
+  --brand-400: #4d8cff;
+  --brand-500: #0d6efd; /* 主色 */
+  --brand-600: #0b5ed7;
+  --brand-700: #0a58ca;
+  --brand-800: #084298;
+  --brand-900: #052c65;
+
+  /* 强调色的语义取色 */
+  --accent-solid: var(--brand-500);
+  --accent-hover: var(--brand-600);
+  --accent-text:  var(--brand-600);
+  --accent-soft:  var(--brand-50);
+  --on-accent:    #ffffff;
+  /* 导航栏在两种模式下都使用品牌蓝底，文字统一用白色系 */
+  --on-brand:       #ffffff;
+  --on-brand-muted: rgba(255, 255, 255, 0.75);
+
+  /* 中性色 */
+  --surface-page:   #ffffff;
+  --surface-subtle: #f8f9fa;
+  --surface-raised: #ffffff;
+  --surface-muted:  #f1f5f9;
+  --border:         #dee2e6;
+  --border-strong:  #ced4da;
+  --text-strong:    #1f2937;
+  --text:           #374151;
+  --text-muted:     #6b7280;
+
+  /* 代码 */
+  --code-bg: #f7f7f7;
+
+  /* Bootstrap 映射：按钮 / 徽章 / 链接 / 边框等组件统一随主题 */
+  --bs-primary: var(--brand-500);
+  --bs-primary-rgb: 13, 110, 253;
+  --bs-info: #0891b2; /* 标签徽章：两种模式统一同一青色，不再各取一档 */
+  --bs-info-rgb: 8, 145, 178;
+  --tag-hover: #0e7490;
+  --bs-body-bg: var(--surface-page);
+  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-body-color: var(--text);
+  --bs-body-color-rgb: 55, 65, 81;
+  --bs-secondary-color: var(--text-muted);
+  --bs-heading-color: var(--text-strong);
+  --bs-border-color: var(--border);
+  --bs-border-color-translucent: rgba(15, 23, 42, 0.15);
+  --bs-link-color: var(--accent-text);
+  --bs-link-hover-color: var(--brand-700);
+  --bs-link-color-rgb: 11, 94, 215;
+  --bs-link-hover-color-rgb: 10, 88, 202;
+}
+
+[data-bs-theme="dark"] {
+  color-scheme: dark;
+
+  /* 同一灰阶切换到深色档位 */
+  --surface-page:   #0f172a;
+  --surface-subtle: #1e293b;
+  --surface-raised: #1e293b;
+  --surface-muted:  #334155;
+  --border:         #334155;
+  --border-strong:  #475569;
+  --text-strong:    #f1f5f9;
+  --text:           #e2e8f0;
+  --text-muted:     #94a3b8;
+
+  /* 品牌蓝色阶不变，仅把「文字用强调色」提亮一档以保证对比度 */
+  --accent-solid: var(--brand-500);
+  --accent-hover: var(--brand-600);
+  --accent-text:  var(--brand-300);
+  --accent-soft:  var(--brand-900);
+  --on-accent:    #ffffff;
+
+  --code-bg: #1e293b;
+
+  --bs-body-bg: var(--surface-page);
+  --bs-body-bg-rgb: 15, 23, 42;
+  --bs-body-color: var(--text);
+  --bs-body-color-rgb: 226, 232, 240;
+  --bs-secondary-color: var(--text-muted);
+  --bs-secondary-bg: var(--surface-subtle);
+  --bs-tertiary-bg: var(--surface-muted);
+  --bs-heading-color: var(--text-strong);
+  --bs-emphasis-color: var(--text-strong);
+  --bs-border-color: var(--border);
+  --bs-border-color-translucent: rgba(226, 232, 240, 0.15);
+  --bs-link-color: var(--accent-text);
+  --bs-link-hover-color: var(--brand-200);
+  --bs-link-color-rgb: 134, 183, 254;
+  --bs-link-hover-color-rgb: 182, 212, 254;
+}

@@ -1,6 +1,9 @@
 {{ define "title" }}{{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
+{{/* 阅读更多链接跟随站点的 mainSections 配置，主题不硬编码具体栏目 */}}
+{{ $mainSections := .Site.Params.mainSections | default (slice "posts") }}
+{{ $latestURL := index $mainSections 0 }}
 <section class="py-5">
     <div class="container">
         <div class="row">
@@ -9,14 +12,14 @@
                 <div class="card border-0">
                     <img src="{{ .feature_img | absURL }}" alt="Feature Image" class="card-img-top rounded">
                     <div class="card-body">
-                        <p class="card-info text-4xl fw-normal">{{ .feature_description }}</p>
+                        <p class="card-info fw-normal">{{ .feature_description }}</p>
                     </div>
                 </div>
                 {{ end }}
             </div>
             
             <div class="col-lg-5">
-                <h2 class="h4 text-primary border-bottom border-primary pb-2 mb-4 dark-section-title">最新更新</h2>
+                <h2 class="h4 border-bottom pb-2 mb-4 dark-section-title">最新更新</h2>
                 <div class="list-group mb-4">
                     {{ range first 2 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections).ByPublishDate.Reverse }}
                     <a href="{{ .Permalink }}" class="list-group-item list-group-item-action border-0 border-bottom">
@@ -37,7 +40,7 @@
                     {{ end }}
                 </div>
                 <div class="text-end">
-                    <a href="{{ "news" | absURL }}" class="btn btn-primary dark-read-more-btn">阅读更多</a>
+                    <a href="{{ $latestURL | absURL }}" class="btn btn-primary dark-read-more-btn">阅读更多</a>
                 </div>
             </div>
         </div>

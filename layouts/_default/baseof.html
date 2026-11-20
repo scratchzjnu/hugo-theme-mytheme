@@ -7,10 +7,23 @@
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
     <meta name="author" content="{{ .Site.Params.author.name }}">
     <meta name="keywords" content="{{ with .Keywords }}{{ delimit . ", " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
-    
+
     <link rel="canonical" href="{{ .Permalink }}">
-    
+
+    {{/* 在首屏渲染前确定主题，避免日间/夜间切换时闪白 */}}
+    <script>
+      (function () {
+        var theme = 'light';
+        try {
+          theme = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        } catch (e) {}
+        document.documentElement.setAttribute('data-bs-theme', theme);
+      })();
+    </script>
+
     <link rel="stylesheet" href="{{ "css/bootstrap/bootstrap.min.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "css/tokens.css" | absURL }}">
     <link rel="stylesheet" href="{{ "css/font-awesome/all.min.css" | absURL }}">
     <link rel="stylesheet" href="{{ "css/syntax.css" | absURL }}">
     <link rel="stylesheet" href="{{ "css/custom.css" | absURL }}">
@@ -30,7 +43,8 @@
     </main>
     
     {{ partial "footer.html" . }}
-    
+
     <script src="{{ "js/bootstrap/bootstrap.bundle.min.js" | absURL }}"></script>
+    <script src="{{ "js/theme-toggle.js" | absURL }}"></script>
 </body>
 </html>
