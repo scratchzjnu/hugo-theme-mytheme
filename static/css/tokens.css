@@ -37,6 +37,10 @@
   --on-brand:       #ffffff;
   --on-brand-muted: rgba(255, 255, 255, 0.75);
 
+  /* 导航栏：同色系、不同亮度，日间品牌蓝 */
+  --navbar-bg:     var(--brand-500);
+  --navbar-border: var(--brand-600);
+
   /* 主题切换图标：日间显示月亮，夜间显示太阳 */
   --icon-moon-display: inline-block;
   --icon-sun-display: none;
@@ -98,6 +102,10 @@
 
   --icon-moon-display: none;
   --icon-sun-display: inline-block;
+
+  /* 导航栏：夜间切到同一蓝色色阶的深蓝 */
+  --navbar-bg:     var(--brand-900);
+  --navbar-border: var(--brand-800);
 
   --code-bg: #1e293b;
 

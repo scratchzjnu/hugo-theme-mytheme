@@ -71,8 +71,15 @@
 .copyright-text { font-size: .875rem; line-height: 1.5; color: var(--text-muted); }
 
 /* ==========================================================================
-   4. 导航栏（蓝底 + 白色系，两种模式一致）
+   4. 导航栏（同色系：日间品牌蓝，夜间深蓝；文字统一白色系）
    ========================================================================== */
+/* Bootstrap 的 .bg-primary 带 !important，这里用同等权重覆盖 */
+.navbar.bg-primary {
+  background-color: var(--navbar-bg) !important;
+  border-bottom: 1px solid var(--navbar-border) !important;
+  transition: background-color .25s ease, border-color .25s ease;
+}
+
 .navbar-nav { align-items: center; }
 .navbar-nav span { display: flex; align-items: center; height: 100%; color: var(--on-brand-muted); }
 .nav-link { padding: .5rem 1rem; min-height: 48px; display: flex; align-items: center; font-weight: 500; box-sizing: border-box; }
