@@ -126,6 +126,9 @@
   line-height: 1;
 }
 .theme-toggle-btn:hover { background-color: rgba(255, 255, 255, .15); color: var(--on-brand); }
+.theme-icon { width: 1.1rem; height: 1.1rem; vertical-align: middle; }
+.theme-icon-moon { display: var(--icon-moon-display); }
+.theme-icon-sun { display: var(--icon-sun-display); }
 
 /* ==========================================================================
    8. 页脚

@@ -2,14 +2,14 @@
  * 日间 / 夜间模式切换
  * ----------------------------------------------------------------------------
  * 初始主题由 baseof.html 中的内联脚本提前写入 <html data-bs-theme>，
- * 这里只负责按钮交互、图标与无障碍标签同步。
+ * 这里只负责按钮交互与无障碍标签同步；
+ * 月亮/太阳图标的显示由 tokens.css 中的 --icon-*-display 变量控制。
  */
 (function () {
   'use strict';
 
   var root = document.documentElement;
   var buttons = document.querySelectorAll('[data-theme-toggle]');
-  var icons = { light: '🌙', dark: '☀️' };
   var labels = { light: '切换至夜间模式', dark: '切换至日间模式' };
 
   function currentTheme() {
@@ -19,7 +19,6 @@
   function sync() {
     var theme = currentTheme();
     Array.prototype.forEach.call(buttons, function (button) {
-      button.textContent = icons[theme];
       button.setAttribute('aria-label', labels[theme]);
       button.setAttribute('title', labels[theme]);
     });

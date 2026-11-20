@@ -37,6 +37,10 @@
   --on-brand:       #ffffff;
   --on-brand-muted: rgba(255, 255, 255, 0.75);
 
+  /* 主题切换图标：日间显示月亮，夜间显示太阳 */
+  --icon-moon-display: inline-block;
+  --icon-sun-display: none;
+
   /* 中性色 */
   --surface-page:   #ffffff;
   --surface-subtle: #f8f9fa;
@@ -91,6 +95,9 @@
   --accent-text:  var(--brand-300);
   --accent-soft:  var(--brand-900);
   --on-accent:    #ffffff;
+
+  --icon-moon-display: none;
+  --icon-sun-display: inline-block;
 
   --code-bg: #1e293b;
 
