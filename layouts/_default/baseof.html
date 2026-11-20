@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-    <meta name="author" content="{{ .Site.Params.author }}">
+    <meta name="author" content="{{ .Site.Params.author.name }}">
     <meta name="keywords" content="{{ with .Keywords }}{{ delimit . ", " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
     
     <link rel="canonical" href="{{ .Permalink }}">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ "css/bootstrap/bootstrap.min.css" | absURL }}">
     <link rel="stylesheet" href="{{ "css/font-awesome/all.min.css" | absURL }}">
     <link rel="stylesheet" href="{{ "css/syntax.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "css/custom.css" | absURL }}">
     
     {{ if .IsHome }}
     <link rel="alternate" type="application/rss+xml" href="{{ "index.xml" | absURL }}" title="{{ .Site.Title }}">

@@ -1,32 +1,22 @@
 /**
  * 自定义样式
  * 补充Bootstrap没有直接提供的样式
- * 
- * 使用情况：
- * .card-body - 在 single.html 和 index.html 中被使用
- * .nav-link - 在 header.html 和 nav.html 中被使用
- * .navbar-nav - 在 header.html 中被使用
- * .btn-outline-secondary:hover - 在 footer.html 中被使用
- * .btn-outline-primary:hover - 在 single.html 中被使用
- * .badge.bg-primary:hover - 在 single.html 和 terms.html 中被使用
- * .badge.bg-info:hover - 在 single.html 中被使用
- * .page-link:hover - 在 list.html 中被使用
- * .list-group-item:hover - 在 index.html、list.html 和 terms.html 中被使用
- * .card - 在 single.html、index.html 中被使用
- * .category-item - 在 terms.html 中被使用
- * .no-hover - 在 list.html 中被使用
  */
 
-/* 禁用悬停效果 */
-.btn.no-hover:hover {
-  background-color: transparent !important;
-  border-color: #6c757d !important;
-  color: #6c757d !important;
-  opacity: 0.5 !important;
-  cursor: not-allowed !important;
+/* 通用过渡效果 */
+.category-item,
+.nav-link,
+.btn-outline-secondary,
+.btn-outline-primary,
+.badge,
+.page-link,
+.btn,
+.list-group-item {
+  transition: all 0.3s ease;
 }
 
-/* 确保禁用状态的按钮悬停时不变色 */
+/* 禁用悬停效果 */
+.btn.no-hover:hover,
 .page-item.disabled .btn:hover {
   background-color: transparent !important;
   border-color: #6c757d !important;
@@ -36,35 +26,74 @@
 }
 
 /* 分类导航菜单项悬停效果 */
-.category-item {
-  transition: all 0.3s ease;
-}
-
 .category-item:hover {
   background-color: #0d6efd !important;
-  color: #ffffff !important;
+  color: #f8f9fa !important;
 }
 
 .category-item:hover .badge {
-  background-color: #ffffff !important;
+  background-color: #f8f9fa !important;
   color: #0d6efd !important;
 }
 
-/* Content styling enhancements */
+/* 内容样式增强 */
 .card-body {
   line-height: 1.8;
+  color: #374151;
+}
+
+.card-body p,
+.card-body li {
+  color: #4b5563;
+}
+
+.card-body strong {
+  color: #1f2937;
+}
+
+.card-body em {
+  color: #374151;
+}
+
+/* 表格样式 */
+.card-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.card-body table th,
+.card-body table td {
+  border: 1px solid #dee2e6;
+  padding: 8px 12px;
+}
+
+.card-body table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+/* 深色模式 - 表格样式 */
+[data-bs-theme="dark"] .card-body table th,
+[data-bs-theme="dark"] .card-body table td {
+  border-color: #475569;
+}
+
+[data-bs-theme="dark"] .card-body table th {
+  background-color: #334155;
 }
 
 .card-body h2 {
   font-size: 1.5rem;
   margin: 30px 0 15px;
-  color: #0d6efd;
+  color: #1f2937;
 }
 
 .card-body h3 {
   font-size: 1.3rem;
   margin: 25px 0 12px;
-  color: #0d6efd;
+  color: #374151;
 }
 
 .card-body p {
@@ -87,134 +116,430 @@
   text-decoration: underline;
 }
 
-/* 导航链接悬停效果 */
-.nav-link:hover {
-  background-color: #ffffff;
-  color: #0d6efd !important;
-  transition: all 0.3s ease;
+/* 导航样式 */
+.navbar-nav {
+  align-items: center;
 }
 
-/* 导航链接激活状态 */
-.nav-link.active {
-  background-color: #ffffff;
-  color: #0d6efd !important;
-  font-weight: 500;
-  border-bottom: 2px solid #0d6efd;
-}
-
-/* 导航分隔线垂直居中 */
 .navbar-nav span {
   display: flex;
   align-items: center;
   height: 100%;
 }
 
-/* 确保导航项垂直居中 */
-.navbar-nav {
-  align-items: center;
-}
-
-/* 导航链接间距和高度调整 */
 .nav-link {
   padding: 0.5rem 1rem;
   min-height: 48px;
   display: flex;
   align-items: center;
   font-weight: 500;
-  transition: all 0.3s ease;
   box-sizing: border-box;
 }
 
-/* 社交媒体图标悬停效果 */
-.btn-outline-secondary:hover {
-  background-color: #ffffff !important;
-  color: #000000 !important;
-  transition: all 0.3s ease;
+.nav-link:hover,
+.nav-link.active {
+  background-color: #f8f9fa;
+  color: #0d6efd !important;
 }
 
-/* 社交媒体图标悬停效果 */
+.nav-link.active {
+  font-weight: 500;
+  border-bottom: 2px solid #0d6efd;
+}
+
+/* 按钮悬停效果 */
+.btn-outline-secondary:hover {
+  background-color: #f1f5f9 !important;
+  color: #1f2937 !important;
+}
+
 .btn-outline-primary:hover {
   transform: scale(1.1);
 }
 
-/* 分类标签悬停效果 */
-.badge.bg-primary:hover {
-  background-color: #0a58ca !important;
-  color: #ffffff !important;
-  transition: all 0.3s ease;
+.btn:hover {
+  transform: none !important;
 }
 
 /* 标签悬停效果 */
+.badge.bg-primary:hover {
+  background-color: #0a58ca !important;
+  color: #f1f5f9 !important;
+}
+
 .badge.bg-info:hover {
   background-color: #087f8c !important;
-  color: #ffffff !important;
-  transition: all 0.3s ease;
+  color: #f1f5f9 !important;
 }
 
 /* 分页按钮悬停效果 */
 .page-link:hover {
   transform: none !important;
-  transition: all 0.3s ease;
 }
 
-/* 上一篇/下一篇按钮悬停效果 */
-.btn:hover {
-  transform: none !important;
-  transition: all 0.3s ease;
-}
-
-/* List group hover effects */
+/* 列表项悬停效果 */
 .list-group-item:hover {
   background-color: #f8f9fa;
   transform: translateY(-2px);
-  transition: all 0.3s ease;
 }
 
-/* Card hover effects */
-.card {
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Responsive adjustments */
+/* 响应式调整 */
 @media (max-width: 768px) {
   .card-body h2 {
     font-size: 1.3rem;
   }
-  
+
   .card-body h3 {
     font-size: 1.2rem;
   }
 
-  /* 暗色模式下，菜单图标改为白色 */
-  .navbar-dark .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-
-  /* 手机菜单展开时，文字居中显示 */
-  .navbar-collapse.show .navbar-nav {
+  /* 导航菜单调整 */
+  .navbar-nav {
     flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  .navbar-nav .nav-link {
     width: 100%;
-    align-items: center;
+    padding: 0.75rem 1rem;
   }
 
-  .navbar-collapse.show .nav-link {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .navbar-collapse.show .nav-link:last-child {
-    border-bottom: none;
-  }
-
-  /* 隐藏桌面端的分隔符 */
   .navbar-nav span {
     display: none;
   }
+
+  /* 主题切换按钮调整 */
+  #theme-toggle {
+    margin-left: 0 !important;
+    margin-top: 0.5rem;
+  }
+
+  /* 首页布局调整 */
+  .col-lg-7,
+  .col-lg-5 {
+    width: 100%;
+  }
+
+  /* 文章页面调整 */
+  .card-header h1 {
+    font-size: 1.5rem;
+  }
+
+  /* 分页按钮调整 */
+  .pagination {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pagination .page-item {
+    margin-bottom: 0.5rem;
+  }
+
+  /* 上一篇/下一篇按钮调整 */
+  .col-md-6 {
+    width: 100%;
+  }
+
+  .col-md-6 .btn {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* 平板设备调整 */
+@media (min-width: 769px) and (max-width: 992px) {
+
+  /* 首页布局调整 */
+  .col-lg-7 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .col-lg-5 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  /* 文章页面调整 */
+  .card-header h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* 深色模式 */
+[data-bs-theme="dark"] .navbar-nav .nav-link {
+  color: #f1f5f9 !important;
+}
+
+/* 深色模式 - 导航栏样式 */
+[data-bs-theme="dark"] .navbar {
+  background-color: #0f172a !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+/* 深色模式 - 主题切换按钮样式 */
+[data-bs-theme="dark"] #theme-toggle {
+  border-color: #cbd5e1 !important;
+  color: #cbd5e1 !important;
+}
+
+[data-bs-theme="dark"] #theme-toggle:hover {
+  background-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+/* 深色模式 - 导航栏分隔符 */
+[data-bs-theme="dark"] .navbar-nav span {
+  color: #94a3b8 !important;
+}
+
+/* 深色模式 - 导航菜单悬停样式 */
+[data-bs-theme="dark"] .navbar-nav .nav-link:hover,
+[data-bs-theme="dark"] .navbar-nav .nav-link.active {
+  background-color: #1e40af !important;
+  color: #f1f5f9 !important;
+  border-bottom: 2px solid #60a5fa !important;
+}
+
+/* 最新更新版块样式 */
+.dark-section-title {
+  color: #1f2937 !important;
+  border-bottom-color: #4b5563 !important;
+}
+
+.dark-list-title {
+  color: #374151;
+}
+
+/* 深色模式 - 最新更新版块样式 */
+[data-bs-theme="dark"] .dark-section-title {
+  color: #a5b4fc !important;
+  border-bottom-color: #6366f1 !important;
+}
+
+[data-bs-theme="dark"] .dark-list-title {
+  color: #f1f5f9;
+}
+
+/* 深色模式 - 阅读更多按钮样式 */
+[data-bs-theme="dark"] .dark-read-more-btn {
+  background-color: #4f46e5 !important;
+  border-color: #4f46e5 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-bs-theme="dark"] .dark-read-more-btn:hover {
+  background-color: #4338ca !important;
+}
+
+/* 版权声明样式 */
+.copyright-section {
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-color: transparent;
+}
+
+.copyright-heading {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #212529;
+}
+
+.copyright-text {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #6c757d;
+}
+
+/* 深色模式 - 版权声明样式 */
+[data-bs-theme="dark"] .copyright-section {
+  border: none;
+}
+
+[data-bs-theme="dark"] .copyright-heading {
+  color: #e2e8f0;
+}
+
+[data-bs-theme="dark"] .copyright-text {
+  color: #94a3b8;
+}
+
+/* 卡片内容区域样式 */
+.dark-card-body {
+  background-color: #f8f9fa;
+}
+
+/* 深色模式 - 卡片内容区域样式 */
+[data-bs-theme="dark"] .dark-card-body {
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+/* 主题切换按钮样式 */
+.theme-toggle-btn {
+  background: transparent !important;
+  border: none !important;
+  color: #f1f5f9 !important;
+  padding: 0.5rem !important;
+  font-size: 1.25rem !important;
+}
+
+/* 深色模式 - 主题切换按钮样式 */
+[data-bs-theme="dark"] .theme-toggle-btn {
+  color: #e9ecef !important;
+}
+
+[data-bs-theme="dark"] .card-body {
+  color: #e2e8f0;
+}
+
+[data-bs-theme="dark"] .card-body h2,
+[data-bs-theme="dark"] .card-body h3 {
+  color: #a5b4fc;
+}
+
+[data-bs-theme="dark"] .card-body a {
+  color: #818cf8;
+}
+
+[data-bs-theme="dark"] .list-group-item:hover {
+  background-color: #334155;
+}
+
+/* 深色模式 - 卡片样式 */
+[data-bs-theme="dark"] .dark-card {
+  background-color: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+[data-bs-theme="dark"] .dark-card-header {
+  background-color: #1e293b !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+[data-bs-theme="dark"] .dark-card-title {
+  color: #f1f5f9 !important;
+}
+
+[data-bs-theme="dark"] .dark-card-body {
+  background-color: #1e293b !important;
+  color: #e2e8f0;
+}
+
+[data-bs-theme="dark"] .dark-card-body h2,
+[data-bs-theme="dark"] .dark-card-body h3 {
+  color: #a5b4fc;
+}
+
+[data-bs-theme="dark"] .dark-card-footer {
+  background-color: #1e293b !important;
+  border-top: 1px solid #334155 !important;
+  color: #e2e8f0;
+}
+
+/* 日间模式 - 卡片样式 */
+.dark-card {
+  background-color: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
+}
+
+.dark-card-header {
+  background-color: #f8f9fa !important;
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+.dark-card-title {
+  color: #1f2937 !important;
+}
+
+.dark-card-body {
+  background-color: #f8f9fa !important;
+}
+
+.dark-card-footer {
+  background-color: #f8f9fa !important;
+  border-top: 1px solid #dee2e6 !important;
+}
+
+/* 标题栏元数据样式 */
+.dark-card-header .text-muted {
+  color: #6b7280 !important;
+}
+
+/* 深色模式 - 标题栏元数据样式 */
+[data-bs-theme="dark"] .dark-card-header .text-muted {
+  color: #94a3b8 !important;
+}
+
+/* 深色模式 - 版权声明样式 */
+[data-bs-theme="dark"] .dark-alert-info {
+  background-color: #1e1b4b !important;
+  border-color: #6366f1 !important;
+  color: #e0e7ff !important;
+}
+
+[data-bs-theme="dark"] .dark-alert-heading {
+  color: #e0e7ff !important;
+}
+
+[data-bs-theme="dark"] .dark-alert-text {
+  color: #c7d2fe !important;
+}
+
+/* 深色模式 - 文章元数据样式 */
+[data-bs-theme="dark"] .text-muted {
+  color: #94a3b8 !important;
+}
+
+/* 深色模式 - 标签样式 */
+[data-bs-theme="dark"] .badge.bg-primary {
+  background-color: #4f46e5 !important;
+}
+
+[data-bs-theme="dark"] .badge.bg-info {
+  background-color: #0891b2 !important;
+}
+
+/* 深色模式 - 按钮样式 */
+[data-bs-theme="dark"] .btn-outline-primary {
+  border-color: #6366f1 !important;
+  color: #a5b4fc !important;
+}
+
+[data-bs-theme="dark"] .btn-outline-primary:hover {
+  background-color: #4f46e5 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Footer样式 */
+.dark-footer-title {
+  color: #1f2937 !important;
+}
+
+.dark-footer-text {
+  color: #4b5563 !important;
+}
+
+/* 深色模式 - Footer样式 */
+[data-bs-theme="dark"] .dark-footer {
+  background-color: #0f172a !important;
+  border-top: 1px solid #334155;
+}
+
+[data-bs-theme="dark"] .dark-footer-title,
+[data-bs-theme="dark"] .dark-footer-text {
+  color: #e2e8f0 !important;
+}
+
+[data-bs-theme="dark"] .dark-footer .border-top {
+  border-color: #334155 !important;
+}
+
+[data-bs-theme="dark"] .dark-footer .btn-outline-secondary {
+  border-color: #475569 !important;
+  color: #cbd5e1 !important;
+}
+
+[data-bs-theme="dark"] .dark-footer .btn-outline-secondary:hover {
+  background-color: #e2e8f0 !important;
+  color: #1f2937 !important;
 }

@@ -3,14 +3,14 @@
 {{ define "main" }}
 <section class="py-5">
     <div class="container">
-        <div class="row">
+        <div class="row" style="min-height: 600px;">
                 <h1 class="text-center mb-3">{{ .Title }}</h1>
                 {{ if .Content }}
                 <div class="text-center mb-4">{{ .Content }}</div>
                 {{ end }}
                 {{ $paginator := .Paginate .Pages }}
                 
-                <div class="text-center text-muted mb-4 pb-3">
+                <div class="text-center text-muted mb-4 pb-3 border-bottom">
                     <p class="mb-0">总文章数: {{ len .Pages }} | 总页数: {{ $paginator.TotalPages }}</p>
                 </div>
                 

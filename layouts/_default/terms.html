@@ -6,7 +6,7 @@
         <div class="row">
             <!-- 主内容区 -->
             <div class="col-lg-8">
-                <article class="card shadow-sm border-0">
+                <article class="card shadow-sm border-0" style="min-height: 600px;">
                     <header class="card-header text-center">
                         <h1 class="text-dark">{{ .Title }}</h1>
                         {{ if .Content }}
@@ -17,7 +17,8 @@
                         <div class="border-top">
                             {{ range .Data.Terms.Alphabetical }}
                             <div class="card border-0 border-bottom">
-                                <a href="{{ .Page.Permalink }}" class="card-body d-flex justify-content-between align-items-center text-decoration-none category-item">
+                                <a href="{{ .Page.Permalink }}"
+                                    class="card-body d-flex justify-content-between align-items-center text-decoration-none category-item">
                                     {{ .Page.Title }}
                                     <span class="badge bg-primary rounded-pill">{{ .Count }}</span>
                                 </a>
@@ -27,7 +28,7 @@
                     </div>
                 </article>
             </div>
-            
+
             <!-- 侧边栏 -->
             <div class="col-lg-4">
                 <!-- 文章分类 -->
@@ -39,7 +40,8 @@
                         <div class="border-top">
                             {{ range $key, $value := .Site.Taxonomies.categories }}
                             <div class="card border-0 border-bottom">
-                                <a href="{{ "categories/" | absURL }}{{ $key | urlize }}" class="card-body d-flex justify-content-between align-items-center text-decoration-none category-item">
+                                <a href="{{ " categories/" | absURL }}{{ $key | urlize }}/"
+                                    class="card-body d-flex justify-content-between align-items-center text-decoration-none category-item">
                                     {{ $key }}
                                     <span class="badge bg-primary float-end">{{ len $value }}</span>
                                 </a>
@@ -48,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 热门 Tag -->
                 <div class="card shadow-sm border-0 mb-4">
                     <div class="card-header bg-primary text-white">
@@ -56,7 +58,8 @@
                     </div>
                     <div class="card-body">
                         {{ range $key, $value := .Site.Taxonomies.tags }}
-                        <a href="{{ "tags/" | absURL }}{{ $key | urlize }}" class="badge bg-info text-white rounded-sm m-1 text-decoration-none">
+                        <a href="{{ " tags/" | absURL }}{{ $key | urlize }}/"
+                            class="badge bg-info text-white rounded-sm m-1 text-decoration-none">
                             {{ $key }}
                         </a>
                         {{ end }}

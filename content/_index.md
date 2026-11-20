@@ -1,9 +1,7 @@
 +++
-title = '{{ replace .File.ContentBaseName "-" " " | title - 亿点点思考}}'
-date = '{{ .Date }}'
+title = 'Home'
+date = 2023-01-01T08:00:00-07:00
 draft = false
-description = ""
-tags = ["",]
-categories = ["",]
-author = "{{ .Site.Params.author }}"
 +++
+
+

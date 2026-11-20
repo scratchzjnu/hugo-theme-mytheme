@@ -3,3 +3,50 @@
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="{{ "css/font-awesome/all.min.css" | absURL }}">
+
+<!-- 深色模式切换脚本 -->
+<script>
+  // 检查本地存储中的主题设置
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme) {
+    document.documentElement.setAttribute('data-bs-theme', currentTheme);
+  }
+
+  // 主题切换按钮
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+
+  // 更新图标（现在使用固定的灯泡图标）
+  function updateThemeIcon() {
+    // 保持灯泡图标不变
+    if (themeToggle) {
+      themeToggle.innerHTML = '💡';
+    }
+    
+    if (themeToggleMobile) {
+      themeToggleMobile.innerHTML = '💡';
+    }
+  }
+
+  // 切换主题
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-bs-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon();
+  }
+
+  // 初始更新图标
+  updateThemeIcon();
+
+  // 为桌面按钮添加事件监听器
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+
+  // 为移动按钮添加事件监听器
+  if (themeToggleMobile) {
+    themeToggleMobile.addEventListener('click', toggleTheme);
+  }
+</script>
