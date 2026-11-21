@@ -137,6 +137,22 @@
   border-color: var(--accent-solid);
   color: var(--on-accent);
 }
+
+/* 上一篇/下一篇：强制单行；超长标题悬浮时向左滚动至结尾 */
+.post-nav-btn {
+  display: block;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.post-nav-text {
+  display: inline-block;
+  white-space: nowrap;
+  transition: transform .35s ease;
+}
+.post-nav-btn:hover .post-nav-text {
+  transform: translateX(var(--nav-scroll, 0px));
+}
 .badge.bg-primary:hover { background-color: var(--brand-700) !important; color: var(--on-accent) !important; }
 .badge.bg-info:hover { background-color: var(--tag-hover) !important; color: var(--on-accent) !important; }
 
