@@ -55,14 +55,14 @@
 .dark-list-title { color: var(--text-strong); }
 
 .dark-read-more-btn {
-  background-color: var(--accent-solid);
-  border-color: var(--accent-solid);
-  color: var(--on-accent);
+  background-color: var(--readmore-bg);
+  border-color: var(--readmore-border);
+  color: var(--readmore-text);
 }
 .dark-read-more-btn:hover {
-  background-color: var(--accent-hover);
-  border-color: var(--accent-hover);
-  color: var(--on-accent);
+  background-color: var(--readmore-hover-bg);
+  border-color: var(--readmore-hover-border);
+  color: var(--readmore-hover-text);
 }
 
 /* 版权声明 */

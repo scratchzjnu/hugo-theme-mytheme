@@ -41,6 +41,14 @@
   --navbar-bg:     var(--brand-500);
   --navbar-border: var(--brand-600);
 
+  /* 首页「阅读更多」按钮：日间实心主按钮 */
+  --readmore-bg:           var(--brand-500);
+  --readmore-border:       var(--brand-500);
+  --readmore-text:         var(--on-accent);
+  --readmore-hover-bg:     var(--brand-600);
+  --readmore-hover-border: var(--brand-600);
+  --readmore-hover-text:   var(--on-accent);
+
   /* 主题切换图标：日间显示月亮，夜间显示太阳 */
   --icon-moon-display: inline-block;
   --icon-sun-display: none;
@@ -106,6 +114,14 @@
   /* 导航栏：夜间切到同一蓝色色阶的深蓝 */
   --navbar-bg:     var(--brand-900);
   --navbar-border: var(--brand-800);
+
+  /* 首页「阅读更多」按钮：夜间改为描边样式，与正文页上一篇/下一篇一致 */
+  --readmore-bg:           transparent;
+  --readmore-border:       var(--brand-500);
+  --readmore-text:         var(--brand-500);
+  --readmore-hover-bg:     var(--brand-500);
+  --readmore-hover-border: var(--brand-500);
+  --readmore-hover-text:   var(--on-accent);
 
   --code-bg: #1e293b;
 
