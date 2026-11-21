@@ -120,19 +120,23 @@
 .category-item:hover .badge.bg-primary { background-color: var(--on-accent) !important; color: var(--accent-solid) !important; }
 
 .pagination .page-link:hover { transform: none; }
-.btn.no-hover:hover,
-.page-item.disabled .btn:hover {
-  background-color: transparent !important;
-  border-color: var(--border-strong) !important;
-  color: var(--text-muted) !important;
-  opacity: .5 !important;
-  cursor: not-allowed !important;
+/* 禁用态分页按钮：无鼠标交互（悬浮不触发任何效果） */
+.btn.no-hover,
+.page-item.disabled .btn {
+  opacity: .5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* ==========================================================================
    6. 按钮与徽章
    ========================================================================== */
-.btn-outline-primary:hover { transform: scale(1.05); }
+/* 描边按钮：常态描边，悬浮时填充底色（不缩放） */
+.btn-outline-primary:hover {
+  background-color: var(--accent-solid);
+  border-color: var(--accent-solid);
+  color: var(--on-accent);
+}
 .badge.bg-primary:hover { background-color: var(--brand-700) !important; color: var(--on-accent) !important; }
 .badge.bg-info:hover { background-color: var(--tag-hover) !important; color: var(--on-accent) !important; }
 
@@ -147,7 +151,7 @@
   padding: .25rem .5rem;
   line-height: 1;
 }
-/* 悬浮时底色不变，只让图标产生位移 */
+/* 悬浮时底色不变，图标向右旋转 15° */
 .theme-toggle-btn:hover { background-color: transparent; color: var(--on-brand); }
 .theme-icon {
   width: 1.25rem;
@@ -155,7 +159,7 @@
   vertical-align: middle;
   transition: transform .2s ease;
 }
-.theme-toggle-btn:hover .theme-icon { transform: translateY(-3px) rotate(-8deg); }
+.theme-toggle-btn:hover .theme-icon { transform: rotate(15deg); }
 .theme-icon-moon { display: var(--icon-moon-display); }
 .theme-icon-sun { display: var(--icon-sun-display); }
 
