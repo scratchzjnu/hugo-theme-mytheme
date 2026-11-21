@@ -23,6 +23,8 @@
 .card-body { line-height: 1.8; color: var(--text); }
 .card-body p,
 .card-body li { color: var(--text); }
+/* 首页题图题注：第三行出处右对齐 */
+.card-body .feature-quote-source { color: var(--text-muted); font-size: .875rem; }
 .card-body strong { color: var(--text-strong); }
 .card-body em { color: var(--text); }
 

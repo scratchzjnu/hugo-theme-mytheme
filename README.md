@@ -131,7 +131,9 @@ logo = true                         # 显示logo
 # 首页Feature配置
 [params.feature]
 feature_img = "images/feature.jpg"  # 特色图片路径
-feature_description = "这里是特色图片的说明文字，可以根据需要进行修改。"  # 特色图片描述
+feature_en = "Education is not the filling of a vessel, but the kindling of a flame."  # 题注第一行
+feature_zh = "教育不是充填瓦罐，而是点燃火焰。"  # 题注第二行
+feature_source = "语出普鲁塔克《论听讲》"  # 题注出处（右对齐）
 ```
 
 ## 安装

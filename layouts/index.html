@@ -12,7 +12,13 @@
                 <div class="card border-0">
                     <img src="{{ .feature_img | absURL }}" alt="Feature Image" class="card-img-top rounded">
                     <div class="card-body">
-                        <p class="card-info fw-normal">{{ .feature_description }}</p>
+                        <div class="card-info feature-quote">
+                            {{ with .feature_en }}<p class="feature-quote-en mb-1">{{ . }}</p>{{ end }}
+                            {{ with .feature_zh }}<p class="feature-quote-zh mb-2">{{ . }}</p>{{ end }}
+                            {{ with .feature_source }}<p class="feature-quote-source text-end mb-0">{{ . }}</p>{{ end }}
+                            {{/* 兼容旧的单字段配置 */}}
+                            {{ if not .feature_en }}{{ with .feature_description }}<p class="mb-0">{{ . }}</p>{{ end }}{{ end }}
+                        </div>
                     </div>
                 </div>
                 {{ end }}

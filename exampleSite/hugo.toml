@@ -51,7 +51,9 @@ logo = true                         # 显示logo
 # 首页Feature配置
 [params.feature]
 feature_img = "images/feature.jpg"  # 特色图片路径
-feature_description = "这里是特色图片的说明文字，可以根据需要进行修改。这张图片展示了我们网站的主题内容，希望能够吸引访问者的注意力。"  # 特色图片描述
+feature_en = "Simple, elegant, and focused on what matters."  # 题注第一行
+feature_zh = "简洁、优雅，专注于真正重要的事。"  # 题注第二行
+feature_source = "示例站点题注"  # 题注出处（右对齐）
 
 # 分页配置
 [pagination]
