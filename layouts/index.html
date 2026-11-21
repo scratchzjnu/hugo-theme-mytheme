@@ -31,9 +31,9 @@
                         </div>
                         <p class="mb-0 mt-2 text-muted">
                             {{ if .Summary }}
-                                {{ substr (.Summary | plainify) 0 100 }}{{ if gt (len (.Summary | plainify)) 100 }}...{{ end }}
+                                {{ substr (.Summary | plainify | htmlUnescape) 0 100 }}{{ if gt (len (.Summary | plainify | htmlUnescape)) 100 }}...{{ end }}
                             {{ else }}
-                                {{ substr (.Content | plainify) 0 100 }}{{ if gt (len (.Content | plainify)) 100 }}...{{ end }}
+                                {{ substr (.Content | plainify | htmlUnescape) 0 100 }}{{ if gt (len (.Content | plainify | htmlUnescape)) 100 }}...{{ end }}
                             {{ end }}
                         </p>
                     </a>
